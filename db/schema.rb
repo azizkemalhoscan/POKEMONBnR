@@ -10,10 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_18_123907) do
+ActiveRecord::Schema.define(version: 2019_11_18_151826) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "pokemons", force: :cascade do |t|
+    t.string "name"
+    t.integer "hp"
+    t.string "type"
+    t.string "attack_name"
+    t.integer "attack_value"
+    t.integer "inventory"
+    t.string "picture"
+    t.string "region"
+    t.integer "energy"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_pokemons", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "pokemon_id"
+    t.string "nickname"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pokemon_id"], name: "index_user_pokemons_on_pokemon_id"
+    t.index ["user_id"], name: "index_user_pokemons_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +47,14 @@ ActiveRecord::Schema.define(version: 2019_11_18_123907) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "username"
+    t.string "avatar"
+    t.integer "pokeball"
+    t.integer "energy"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "user_pokemons", "pokemons"
+  add_foreign_key "user_pokemons", "users"
 end
