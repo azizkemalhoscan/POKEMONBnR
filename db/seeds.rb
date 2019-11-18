@@ -4,7 +4,7 @@ puts 'Cleaning database...'
 Pokemon.destroy_all
 User.destroy_all
 
-puts 'Creating restaurants...'
+puts 'Creating Pokemon...'
 
 
 50.times do
@@ -18,6 +18,9 @@ puts 'Creating restaurants...'
     energy: rand(1..10)
   })
 end
+
+puts 'Creating Users...'
+
 
 10.times do
   @user = User.create! ({
