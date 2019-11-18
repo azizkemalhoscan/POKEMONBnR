@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :views
   get 'users/index'
   get 'users/show'
   get 'users/new'
@@ -12,5 +13,5 @@ Rails.application.routes.draw do
   resources :pokemons
   # Watch out for several or nested routes
 
-  # resources :users
+  #resources :users
 end
