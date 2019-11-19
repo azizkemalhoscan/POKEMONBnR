@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    # @pokemons = @user.pokemons ###TODO
+    @pokemons = 
     authorize @user
   end
 
