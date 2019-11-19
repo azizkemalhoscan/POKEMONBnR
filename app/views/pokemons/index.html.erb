@@ -1,1 +1,7 @@
 <h1>Pokemon index</h1>
+
+<ul>
+<% @pokemons.each do |pokemon| %>
+  <li><%= pokemon.name %></li>
+<% end %>
+</ul>

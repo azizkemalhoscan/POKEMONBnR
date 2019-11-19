@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :views
-
   devise_for :users
-  root to: 'pages#home'
+  root to: 'users#show'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :pokemons
+  resources :pokemons, only: [:index, :show]
   # Watch out for several or nested routes
+  resources :users, only: [:show, :index]
 
-  resources :users
+  get '/landing', to: 'pages#home', as: 'landing'
 end
