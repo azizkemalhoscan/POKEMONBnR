@@ -1,0 +1,27 @@
+// This partial scss created by Aziz for index page manipualtion.
+
+.sort_by {
+  width: 350px;
+  display: flex;
+  vertical-align: center;
+  justify-content: space-between;
+  margin-left: 100px;
+}
+
+.division_ranks {
+  margin: 15px;
+}
+
+.whole-product {
+  display: flex;
+}
+// Took out background color white
+.card-product-infos {
+  display: flex;
+  vertical-align: center;
+  // background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  h5 {
+    padding-top: 27px;
+  }
+}
