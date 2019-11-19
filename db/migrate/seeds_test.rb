@@ -1,16 +1,9 @@
 require "open-uri"
 require "nokogiri"
 require "json"
-require "faker"
-
-puts 'Cleaning database...'
-Pokemon.destroy_all
-User.destroy_all
-
-puts 'Creating Pokemon...'
 
 counter = 0
-until counter == 151
+# until counter == 10
 
 #Scraping Pokemon.com website
 counter += 1
@@ -45,36 +38,18 @@ pokemon_picture = html_doc.search('.profile-images img').attribute('src').value
 
 pokemon_region = "Kanto"
 
+p pokemon_number
+
 
 #Creation of Pokemon Instances
-@pokemon = Pokemon.create! ({
-  name: pokemon_name,
-  number: pokemon_number,
-  hp: pokemon_hp,
-  kind_of: pokemon_kind,
-  attack_name: pokemon_attack_name,
-  attack_value: pokemon_attack_value,
-  region: pokemon_region,
-  picture: pokemon_picture
-})
+# @pokemon = Pokemon.create! {
+#   name: pokemon_name,
+#   hp: pokemon_hp,
+#   kind_of: pokemon_kind,
+#   attack_name: pokemon_attack_name,
+#   attack_value: pokemon_attack_value,
+#   region: pokemon_region,
+#   picture: pokemon_picture
+# }
 
-end
-
-puts "All #{counter} Pokemon Created"
-
-puts 'Creating Users...'
-
-
-10.times do
-  @user = User.create! ({
-    email: Faker::Internet.email,
-    username: Faker::Internet.username,
-    password: "123123",
-    pokeball: rand(1..10),
-    energy: rand(1..5)
-  })
-end
-
-puts "All 10 Users have been created"
-
-puts "Finished creating our database"
+# end
