@@ -1,0 +1,7 @@
+<div class="container text-center m-3 mx-auto rounded">
+<%= simple_form_for([@user, @userPokemon]) do |f| %>
+  <%= f.input :nickname %>
+  <%= f.association :pokemon, as: :select %>
+  <%= f.button :submit %>
+<% end %>
+</div>

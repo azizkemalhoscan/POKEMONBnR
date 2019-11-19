@@ -7,4 +7,6 @@
 
 <p>My Pokemon</p>
 
-<!-- Each do -->
+<% @user.pokemons.each do |pokemon| %>
+<%= pokemon.name %>
+<% end %>

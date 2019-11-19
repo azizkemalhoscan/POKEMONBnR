@@ -1,35 +1,34 @@
 class UserPokemonsController < ApplicationController
   def new
-    @dose = Dose.new
-    @cocktail = Cocktail.find(params[:cocktail_id])
+    @userPokemon = UserPokemon.new
+    @user = User.find(params[:user_id])
+    authorize @userPokemon
   end
 
   def create
-    @dose = Dose.new(dose_params)
-    @cocktail = Cocktail.find(params[:cocktail_id])
-    @dose.cocktail = @cocktail
-    if @dose.save
-      redirect_to cocktail_path(@cocktail)
+    @userPokemon = UserPokemon.new(user_pokemon_params)
+    @user = User.find(params[:user_id])
+
+    authorize @userPokemon
+
+    @userPokemon.user = current_user
+
+    if @userPokemon.save
+      redirect_to user_path(current_user)
     else
       render :new
     end
   end
 
   def destroy
-    @dose = Dose.find(params[:id])
-    @cocktail = Cocktail.find(@dose.cocktail_id)
-    if @dose.delete
-      redirect_to cocktail_path(@cocktail)
-    else
-  	  render :new
-  	end
+
   end
 
   private
 
-  def dose_params
+  def user_pokemon_params
     # *Strong params*: You need to *whitelist* what can be updated by the user
     # Never trust user data!
-    params.require(:dose).permit(:ingredient_id, :description)
+    params.require(:user_pokemon).permit(:user_id, :pokemon_id, :nickname)
   end
 end
