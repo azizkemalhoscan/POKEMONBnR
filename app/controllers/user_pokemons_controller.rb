@@ -1,19 +1,18 @@
 class UserPokemonsController < ApplicationController
   def new
-    @userPokemon = UserPokemon.new
+    @user_pokemon = UserPokemon.new
     @user = User.find(params[:user_id])
-    authorize @userPokemon
+    authorize @user_pokemon
   end
 
   def create
-    @userPokemon = UserPokemon.new(user_pokemon_params)
-    @user = User.find(params[:user_id])
+    @user_pokemon = UserPokemon.new(user_pokemon_params)
 
-    authorize @userPokemon
+    authorize @user_pokemon
 
     @userPokemon.user = current_user
 
-    if @userPokemon.save
+    if @user_pokemon.save
       redirect_to user_path(current_user)
     else
       render :new
@@ -21,7 +20,15 @@ class UserPokemonsController < ApplicationController
   end
 
   def destroy
+    @user_pokemon = UserPokemon.new(user_pokemon_params)
 
+    authorize @user_pokemon
+
+    if @userPokemon.delete
+      redirect_to user_path(current_user)
+    else
+      render :new
+    end
   end
 
   private
