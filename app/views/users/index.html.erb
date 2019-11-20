@@ -38,7 +38,7 @@ Sort by: <%= link_to "Rank desc", users_path(sort: 'rank_desc') %> |  <%= link_t
       <h5>#<%= counter+=1 %></h5>
     </div>
   <img class="avatar-square" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://vignette.wikia.nocookie.net/295e578f-a7d1-4240-bc80-303bcfd62dc8">
-<p class="warrior-name"><%=link_to user.username.capitalize, user_path(user) %></p>
+<p class="warrior-name"><%=link_to user.username.capitalize, user_path(@user.id) %></p>
   <div class="card-product-infos">
     <%user.user_pokemons.each do |pair| %>
       <% @pokemon = pair.pokemon %>
