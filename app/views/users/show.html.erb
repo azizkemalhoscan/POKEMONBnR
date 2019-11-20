@@ -8,8 +8,10 @@
 <p>My Pokemon</p>
 
 <% current_user.user_pokemons.each do |pair| %>
+
   <% @pokemon = pair.pokemon %>
   <% @type = @pokemon.kind_of.downcase %>
+
 
 <div class="cust-cards">
   <figure class="card card--<%= @type%>">

@@ -2,14 +2,14 @@
 <h1>Pokemon show</h1>
 
 <%#= link_to "Add Pokemon", user_user_pokemons_path(current_user, pokemon_id: @pokemon.id ), method: :post, class: "btn btn-primary" %>
-<%= simple_form_for([current_user, UserPokemon.new]) do |f| %>
+<% if current_user.user_pokemons.length < 3 %>
+  <%= simple_form_for([current_user, UserPokemon.new]) do |f| %>
   <%#= f.input :nickname, :label => "Give it a Nickname?"%>
   <%#= f.association :pokemon, as: :select %>
   <%= f.hidden_field :pokemon_id, value: params[:id].to_i %>
   <%= f.button :submit, class: "btn btn-primary" %>
+  <% end %>
 <% end %>
-
-
 
 <div class="container-fluid">
       <div class="row">
