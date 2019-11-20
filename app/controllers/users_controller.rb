@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user
+  before_action :set_user, only: [:show]
 
   def index
     @users = policy_scope(User)
@@ -13,15 +13,14 @@ class UsersController < ApplicationController
   end
 
   def show
-    @users = policy_scope(User)
-    authorize current_user
+    authorize @user
   end
 
   private
 
   def set_user
-    if current_user
-      @user = current_user
+    if current_user 
+      @user = User.find(params[:id])
     else
       redirect_to landing_path
     end
