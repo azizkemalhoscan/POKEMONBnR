@@ -7,9 +7,7 @@
 
     <div class="cust-card 1 pokemon">
       <%= link_to pokemon_path(pokemon) do %>
-        <div class="card_image">
-          <img src="<%= pokemon.picture %>"/>
-        </div>
+        <div class="card_image" style="background-image: url(<%= pokemon.picture %>)"></div>
         <div class="card_title title-black">
           <p ><%= pokemon.name %></p>
         </div>

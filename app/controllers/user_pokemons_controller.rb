@@ -9,7 +9,7 @@ class UserPokemonsController < ApplicationController
 
     authorize @user_pokemon
 
-    @user_pokemon.user = User.find
+    @user_pokemon.user = current_user
 
     if @user_pokemon.save
       redirect_to user_path(current_user)
