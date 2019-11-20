@@ -7,7 +7,8 @@ class UsersController < ApplicationController
   end
 
   def show
-    authorize @user
+    @users = policy_scope(User)
+    authorize @users
   end
 
   private

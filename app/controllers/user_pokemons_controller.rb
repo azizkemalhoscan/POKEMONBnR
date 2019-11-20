@@ -1,7 +1,6 @@
 class UserPokemonsController < ApplicationController
   def new
     @user_pokemon = UserPokemon.new
-    @user = User.find(params[:user_id])
     authorize @user_pokemon
   end
 
@@ -10,7 +9,7 @@ class UserPokemonsController < ApplicationController
 
     authorize @user_pokemon
 
-    @userPokemon.user = current_user
+    @user_pokemon.user = current_user
 
     if @user_pokemon.save
       redirect_to user_path(current_user)
