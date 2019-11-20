@@ -2,7 +2,7 @@
 
 <h2 class="my-pokemon">My Pokemon</h2>
 
-<% current_user.user_pokemons.each do |pair| %>
+<% @user.user_pokemons.each do |pair| %>
 
   <% @pokemon = pair.pokemon %>
   <% @type = @pokemon.kind_of.downcase %>
