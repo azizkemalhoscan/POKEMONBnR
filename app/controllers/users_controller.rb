@@ -10,12 +10,11 @@ class UsersController < ApplicationController
         @users = policy_scope(User).sort_by { |u| u.energy }
       end
     end
-    authorize @users
   end
 
   def show
     @users = policy_scope(User)
-    authorize @user
+    authorize current_user
   end
 
   private

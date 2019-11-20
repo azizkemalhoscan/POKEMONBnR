@@ -7,10 +7,13 @@ class UserPokemonsController < ApplicationController
   def create
     @user_pokemon = UserPokemon.new(user_pokemon_params)
 
+
+
+
+
     authorize @user_pokemon
 
     @user_pokemon.user = current_user
-
     if @user_pokemon.save
       redirect_to user_path(current_user)
     else

@@ -4,6 +4,8 @@ require "json"
 require "faker"
 
 puts 'Cleaning database...'
+
+UserPokemon.destroy_all
 Pokemon.destroy_all
 User.destroy_all
 
@@ -94,5 +96,21 @@ puts 'Creating Users...'
 end
 
 puts "All 10 Users have been created"
+
+puts 'Assigning 3 pokemons to users...'
+
+User.all.each do |user|
+  3.times do
+    UserPokemon.create! ({
+      nickname: Faker::Internet.username,
+      pokemon: Pokemon.all.sample,
+      user: user
+    })
+  end
+end
+
+
+
+puts "Finished"
 
 puts "Finished creating our database"
