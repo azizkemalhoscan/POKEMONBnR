@@ -2,17 +2,20 @@
 
 .card-product {
   overflow: hidden;
-  height: 100px;
-  width: 800px;
+  height: 120px;
+  width: 900px;
+  justify-content: center;
 
   // background: white;
   // box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
   margin-top: 20px;
-  margin-left:150px;
+  margin-left:100px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 2px;
+  text-decoration: none;
+
 }
 
 .a-bigger-div {

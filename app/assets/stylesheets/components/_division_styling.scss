@@ -17,12 +17,35 @@
 }
 // Took out background color white
 
-.warrior-name {
+.warrior-name a {
+  margin-top: 0px !important;
+  text-align: center;
+  display: block;
   margin-right: 0;
   margin-top: 15px;
-  width: 100px;
+  width: 150px;
+  font-size: 20px;
+  text-decoration: none;
+  color: black;
 }
 
 .pokemon-prop {
   display: block;
+}
+
+.fuck-you {
+  text-decoration: none;
+  color: black;
+}
+
+.header-index {
+  margin: 30px;
+}
+
+.pokemon-box-width {
+  width: 100px;
+}
+
+#text-deco {
+  color: black;
 }
