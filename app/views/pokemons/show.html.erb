@@ -7,7 +7,7 @@
   <%#= f.input :nickname, :label => "Give it a Nickname?"%>
   <%#= f.association :pokemon, as: :select %>
   <%= f.hidden_field :pokemon_id, value: params[:id].to_i %>
-  <%= f.button :submit, class: "btn btn-primary" %>
+  <%= f.button :submit, class: "btn btn-primary", value: "Add to team" %>
   <% end %>
 <% end %>
 

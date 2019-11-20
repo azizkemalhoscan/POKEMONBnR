@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   	
   # Watch out for several or nested routes
   resources :users, only: [:show, :index] do
-  	resources :user_pokemons, only: [:new, :create]
+  	resources :user_pokemons, only: [:new, :create, :destroy]
   end
 
   get '/landing', to: 'pages#home', as: 'landing'
