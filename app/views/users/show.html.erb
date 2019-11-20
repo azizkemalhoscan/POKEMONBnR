@@ -1,12 +1,6 @@
-<h1><%= @user.username %>'s Profile</h1>
+<h1 class="username"><%= @user.username %></h1>
 
-<!-- <p>Email: <%= @user.email %></p>
-<p>Pokeballs: <%= @user.pokeball %></p>
-<p>Energy: <%= @user.energy %></p> -->
-
-<h2>Pokemon Team</h2>
-
-<br>
+<h2 class="my-pokemon">My Pokemon</h2>
 
 <% current_user.user_pokemons.each do |pair| %>
 
@@ -63,7 +57,7 @@
         </h4>
         <h4 class="card__ability">
           <span class="card__label">Value</span>
-          <%= @pokemon.attack_value %>
+          <%= @pokemon.attack_value ? @pokemon.attack_value : "Status Ability" %>
         </h4>
       </div>
     </figcaption>

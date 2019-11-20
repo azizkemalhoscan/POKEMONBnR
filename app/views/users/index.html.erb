@@ -1,4 +1,4 @@
-<h1>Indigo Leauge</h1>
+<h1 class="header-index">Indigo League</h1>
 
 <!-- <div class="sort_by">
   <div class="rdlLb"><span class="jQgLo">Sort By</span></div>
@@ -31,20 +31,30 @@ Sort by: <%= link_to "Rank desc", users_path(sort: 'rank_desc') %> |  <%= link_t
 
 
 
-<%# @users.each do |user| %>
+<% counter = 0 %>
+<%@users.each do |user| %>
 <div class="card-product">
     <div class="division_ranks">
-      <h5><%= current_user.id %></h5>
+      <h5>#<%= counter+=1 %></h5>
     </div>
   <img class="avatar-square" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://vignette.wikia.nocookie.net/295e578f-a7d1-4240-bc80-303bcfd62dc8">
-<p class="warrior-name"><%=link_to current_user.username, user_path(current_user) %></p>
+<p class="warrior-name"><%=link_to user.username.capitalize, user_path(user) %></p>
   <div class="card-product-infos">
-    <%= current_user.energy %>
-    <%current_user.user_pokemons.each do |pair| %>
+    <%user.user_pokemons.each do |pair| %>
       <% @pokemon = pair.pokemon %>
           <img class="avatar-large" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="<%= @pokemon.picture %>">
-    <% end %>
+          <div class="pokemon-box-width">
+            <p><%= @pokemon.name %></p>
+            <p><%= @pokemon.hp %></p>
+            <p><%= @pokemon.region %></p>
+            <td>
+            ----
+            </td>
+          </div>
+      <% end %>
   </div>
 </div>
+<% end %>
+
 
 
