@@ -3,12 +3,19 @@ class UsersController < ApplicationController
 
   def index
     @users = policy_scope(User)
-    authorize @users
+    if params[:sort]
+      if params[:sort] == "rank_desc"
+        @users = policy_scope(User).sort_by { |u| -u.energy }
+      elsif params[:sort] == "rank_asc"
+        @users = policy_scope(User).sort_by { |u| u.energy }
+      end
+    end
+    # authorize @users
   end
 
   def show
     @users = policy_scope(User)
-    authorize @users
+    authorize @user
   end
 
   private
