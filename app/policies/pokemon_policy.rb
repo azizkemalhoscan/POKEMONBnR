@@ -14,6 +14,7 @@ class PokemonPolicy < ApplicationPolicy
   end
 
   def show?
-  	true
+    true
   end
 end
+

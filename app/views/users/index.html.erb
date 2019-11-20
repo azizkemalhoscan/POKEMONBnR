@@ -1,101 +1,47 @@
 <h1>Indigo Leauge</h1>
-<p>Trainer Rankings</p>
-
 
 <div class="sort_by">
   <div class="rdlLb"><span class="jQgLo">Sort By</span></div>
   <select name="price_max" id="forsale_price_max" data-section="for-sale" data-selectboxit="false">
             <option value="">Rank</option>
 
-    <option value="scroll" data-condensed="10k">£10,000</option>
-    <option value="20000" data-condensed="20k">£20,000</option>
-    <option value="30000" data-condensed="30k">£30,000</option>
-    <option value="40000" data-condensed="40k">£40,000</option>
+    <option value="scroll" data-condensed="10k">Scroll</option>
+    <option value="Ascending" data-condensed="20k">Ascending</option>
+    <option value="Descending" data-condensed="30k">Descending</option>
   </select>
   <select name="price_max" id="forsale_price_max" data-section="for-sale" data-selectboxit="false">
             <option value="">Energy</option>
 
-    <option value="scroll" data-condensed="10k">£10,000</option>
-    <option value="20000" data-condensed="20k">£20,000</option>
-    <option value="30000" data-condensed="30k">£30,000</option>
-    <option value="40000" data-condensed="40k">£40,000</option>
+    <option value="scroll" data-condensed="Value">£10,000</option>
+    <option value="Value" data-condensed="Value">£20,000</option>
+    <option value="Value" data-condensed="Value">£30,000</option>
+    <option value="Value" data-condensed="Value">£40,000</option>
   </select>
   <select name="price_max" id="forsale_price_max" data-section="for-sale" data-selectboxit="false">
             <option value="">No max</option>
 
-    <option value="scroll" data-condensed="10k">£10,000</option>
-    <option value="20000" data-condensed="20k">£20,000</option>
-    <option value="30000" data-condensed="30k">£30,000</option>
-    <option value="40000" data-condensed="40k">£40,000</option>
+    <option value="scroll" data-condensed="Value">£10,000</option>
+    <option value="value" data-condensed="Value">£20,000</option>
+    <option value="Value" data-condensed="Value">£30,000</option>
+    <option value="Value" data-condensed="Value">£40,000</option>
   </select>
 </div>
 
 
-<div class="card-product">
-  <img class="avatar-square" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://vignette.wikia.nocookie.net/295e578f-a7d1-4240-bc80-303bcfd62dc8">
- <div class="division_ranks">
-  <h5>1st</h5>
-  </div>
-  <div class="card-product-infos">
-    <h5>Ash Ketchum</h5>
-<img class="avatar-large" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1g_MnBTfa1liZzl7VDJq8SPMugVI0-1HcW9cqOLb23mBuGXxg&s">
-<img class="avatar-large" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoWnvDgGJiF6YJdt76dqAg1Rq3WSVhPLZD57P0LmQjcW8TBfMa&s">
-<img class="avatar-large" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://i.pinimg.com/originals/04/05/32/04053236f63533a2faac32a15cd7dfc1.gif">
-  </div>
-  <div class="card-product-badges">
-    <img id="avatar-badges" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://vignette.wikia.nocookie.net/295e578f-a7d1-4240-bc80-303bcfd62dc8">
-    <p>Frequently used</p>
-    <img id="avatar-badges" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://vignette.wikia.nocookie.net/295e578f-a7d1-4240-bc80-303bcfd62dc8">
-    <p>Badge</p>
-  </div>
-</div>
+<img class="avatar-large" src="<%= Pokemon.last.picture %>">
 
-<div class="card-product">
-  <img class="avatar-square" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://vignette.wikia.nocookie.net/295e578f-a7d1-4240-bc80-303bcfd62dc8">
- <div class="division_ranks">
-  <h5>2nd</h5>
-  </div>
-  <div class="card-product-infos">
-    <h5>Ash Ketchum</h5>
-<img class="avatar-large" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1g_MnBTfa1liZzl7VDJq8SPMugVI0-1HcW9cqOLb23mBuGXxg&s">
-<img class="avatar-large" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoWnvDgGJiF6YJdt76dqAg1Rq3WSVhPLZD57P0LmQjcW8TBfMa&s">
-<img class="avatar-large" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://i.pinimg.com/originals/04/05/32/04053236f63533a2faac32a15cd7dfc1.gif">
-  </div>
-  <div class="card-product-badges">
-    <img id="avatar-badges" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://vignette.wikia.nocookie.net/295e578f-a7d1-4240-bc80-303bcfd62dc8">
-    <p>Frequently used</p>
-    <img id="avatar-badges" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://vignette.wikia.nocookie.net/295e578f-a7d1-4240-bc80-303bcfd62dc8">
-    <p>Badge</p>
-  </div>
-</div>
 
-<div class="card-product">
-  <img class="avatar-square" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://vignette.wikia.nocookie.net/295e578f-a7d1-4240-bc80-303bcfd62dc8">
- <div class="division_ranks">
-  <h5>3rd</h5>
-  </div>
-  <div class="card-product-infos">
-    <h5>Ash Ketchum</h5>
-<img class="avatar-large" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1g_MnBTfa1liZzl7VDJq8SPMugVI0-1HcW9cqOLb23mBuGXxg&s">
-<img class="avatar-large" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoWnvDgGJiF6YJdt76dqAg1Rq3WSVhPLZD57P0LmQjcW8TBfMa&s">
-<img class="avatar-large" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://i.pinimg.com/originals/04/05/32/04053236f63533a2faac32a15cd7dfc1.gif">
-  </div>
-  <div class="card-product-badges">
-    <img id="avatar-badges" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://vignette.wikia.nocookie.net/295e578f-a7d1-4240-bc80-303bcfd62dc8">
-    <p>Frequently used</p>
-    <img id="avatar-badges" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://vignette.wikia.nocookie.net/295e578f-a7d1-4240-bc80-303bcfd62dc8">
-    <p>Badge</p>
-  </div>
-</div>
 
+<% @users.each do |user| %>
 <div class="card-product">
   <img class="avatar-square" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://vignette.wikia.nocookie.net/295e578f-a7d1-4240-bc80-303bcfd62dc8">
  <div class="division_ranks">
-  <h5>1st</h5>
+  <h5><%= user.id %></h5>
   </div>
   <div class="card-product-infos">
-    <h5>Ash Ketchum</h5>
-<img class="avatar-large" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1g_MnBTfa1liZzl7VDJq8SPMugVI0-1HcW9cqOLb23mBuGXxg&s">
+    <p><%=link_to user.username, user_path(user) %></p>
+
+<img class="avatar-large" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1g_MnBTfa1liZzl7VDJq8SPMugVI0-1HcW9cqOLb23mBuGXxg&s">
 <img class="avatar-large" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoWnvDgGJiF6YJdt76dqAg1Rq3WSVhPLZD57P0LmQjcW8TBfMa&s">
 <img class="avatar-large" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://i.pinimg.com/originals/04/05/32/04053236f63533a2faac32a15cd7dfc1.gif">
   </div>
@@ -106,3 +52,4 @@
     <p>Badge</p>
   </div>
 </div>
+<% end %>

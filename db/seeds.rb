@@ -33,7 +33,17 @@ pokemon_name = html_doc.search('.pokedex-pokemon-pagination-title').text.strip.s
 
 pokemon_number = html_doc.search('.pokedex-pokemon-pagination-title').text.strip.split(' ')[1]
 
-pokemon_hp = pokemon['stats'][-1]['base_stat']
+pokemon_speed = pokemon['stats'][0]['base_stat']
+
+pokemon_special_defense = pokemon['stats'][1]['base_stat']
+
+pokemon_special_attack = pokemon['stats'][2]['base_stat']
+
+pokemon_defense = pokemon['stats'][3]['base_stat']
+
+pokemon_attack = pokemon['stats'][4]['base_stat']
+
+pokemon_hp = pokemon['stats'][5]['base_stat']
 
 pokemon_kind = html_doc.search('.dtm-type ul li a').first.text
 
@@ -45,11 +55,19 @@ pokemon_picture = html_doc.search('.profile-images img').attribute('src').value
 
 pokemon_region = "Kanto"
 
+pokemon_description = html_doc.search('.version-y').text.strip
+
 
 #Creation of Pokemon Instances
 @pokemon = Pokemon.create! ({
   name: pokemon_name,
   number: pokemon_number,
+  description: pokemon_description,
+  speed: pokemon_speed,
+  special_defense: pokemon_special_defense,
+  special_attack: pokemon_special_attack,
+  defense: pokemon_defense,
+  attack: pokemon_attack,
   hp: pokemon_hp,
   kind_of: pokemon_kind,
   attack_name: pokemon_attack_name,

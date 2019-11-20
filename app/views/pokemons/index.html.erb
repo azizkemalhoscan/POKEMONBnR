@@ -1,7 +1,24 @@
-<h1>Pokemon index</h1>
 
-<ul>
-<% @pokemons.each do |pokemon| %>
-  <li><%= pokemon.name %></li>
-<% end %>
-</ul>
+<h1>PokeDex</h1>
+
+<div class="cards-list" >
+
+  <% @pokemons.each do |pokemon|  %>
+
+    <div class="cust-card 1 pokemon">
+      <%= link_to pokemon_path(pokemon) do %>
+        <div class="card_image">
+          <img src="<%= pokemon.picture %>"/>
+        </div>
+        <div class="card_title title-black">
+          <p ><%= pokemon.name %></p>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+<div class="pagination">
+  <%= will_paginate @pokemons, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+</div>
+
