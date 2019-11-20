@@ -48,11 +48,8 @@ Sort by: <%= link_to "Rank desc", users_path(sort: 'rank_desc') %> |  <%= link_t
 <% end %>
 
 
-<%@user.user_pokemons.each do |pair|
-  %>
-
-<%= pair.pokemon.name %>
-
+<%@user.user_pokemons.each do |pair| %>
+  <%= pair.pokemon.name %>
 <% end %>
 
 
