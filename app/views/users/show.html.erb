@@ -8,8 +8,8 @@
 <p>My Pokemon</p>
 
 <!-- Each do -->
-<% @pokemon = Pokemon.last %>
-<%= @type = Pokemon.last.kind_of.downcase %>
+<% @pokemon = Pokemon.first %>
+<%= @type = Pokemon.first.kind_of.downcase %>
 <div class="cards">
 
 <figure class="card card--<%= @type%>">
