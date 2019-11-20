@@ -8,18 +8,16 @@
 <p>My Pokemon</p>
 
 <ul>
-<% @user.pokemons.each do |pokemon| %>
-  <li><%= pokemon.name %></li>
+<% current_user.user_pokemons.each do |pair| %>
+  <li><%= pair.pokemon.name %></li>
 <% end %>
 </ul>
 
 <%= link_to "Add Pokemon", new_user_user_pokemon_path(current_user), class: "btn btn-primary" %>
 
---------------------
-
 <!-- Each do -->
 <% @pokemon = Pokemon.first %>
-<%= @type = Pokemon.first.kind_of.downcase %>
+<% @type = Pokemon.first.kind_of.downcase %>
 <div class="cards">
 
 <figure class="card card--<%= @type%>">
