@@ -7,10 +7,6 @@ class UserPokemonsController < ApplicationController
   def create
     @user_pokemon = UserPokemon.new(user_pokemon_params)
 
-
-
-
-
     authorize @user_pokemon
 
     @user_pokemon.user = current_user
@@ -22,11 +18,11 @@ class UserPokemonsController < ApplicationController
   end
 
   def destroy
-    @user_pokemon = UserPokemon.new(user_pokemon_params)
+    @user_pokemon = UserPokemon.find(params[:id])
 
     authorize @user_pokemon
 
-    if @userPokemon.delete
+    if @user_pokemon.delete
       redirect_to user_path(current_user)
     else
       render :new

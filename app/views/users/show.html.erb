@@ -1,6 +1,5 @@
 <h1 class="username"><%= @user.username %></h1>
 
-
 <h2 class="my-pokemon">My Pokemon</h2>
 
 <% current_user.user_pokemons.each do |pair| %>
@@ -62,8 +61,14 @@
         </h4>
       </div>
     </figcaption>
+    <%= link_to "Remove from team", user_user_pokemon_path(current_user, pair),
+      method: :delete,
+      class: "btn btn-primary" %>
   </figure>
 </div>
 <% end %>
 
-<%= link_to "Add Pokemon", pokemons_path, class: "btn btn-primary" %>
+<% if current_user.user_pokemons.length < 3 %>
+  <%= link_to "Add Pokemon", pokemons_path, class: "btn btn-primary" %>
+<% end %>
+
