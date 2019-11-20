@@ -23,17 +23,18 @@
   }
 }
 .cust-card .card_image {
-  width: 250px;
-  height: 250px;
+  width: inherit;
+  height: inherit;
   border-radius: 40px;
 }
 
 .cust-card .card_image img {
-  width: inherit;
-  height: inherit;
+  width: 250px;
+  height: 250px;
   border-radius: 40px;
   object-fit: cover;
   margin-left: 20px;
+  margin-top: 20px;
 }
 
 .cust-card .card_title {
@@ -52,8 +53,8 @@
 
 h1 {
   text-align: center;
-  margin-top: 0.5em;
 }
+
 .pagination {
   margin-top: 0.5em;
   display: flex;
