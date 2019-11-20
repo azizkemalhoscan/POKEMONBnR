@@ -10,7 +10,7 @@ class UsersController < ApplicationController
         @users = policy_scope(User).sort_by { |u| u.energy }
       end
     end
-    # authorize @users
+    authorize @users
   end
 
   def show
@@ -21,8 +21,8 @@ class UsersController < ApplicationController
   private
 
   def set_user
-    if params[:id]
-      @user = User.find(params[:id])
+    if current_user
+      @user = current_user
     else
       redirect_to landing_path
     end
