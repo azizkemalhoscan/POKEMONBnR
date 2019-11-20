@@ -1,40 +1,42 @@
 
-<h1>Pokemon show</h1>
-
-<%#= link_to "Add Pokemon", user_user_pokemons_path(current_user, pokemon_id: @pokemon.id ), method: :post, class: "btn btn-primary" %>
-<% if current_user.user_pokemons.length < 3 %>
-  <%= simple_form_for([current_user, UserPokemon.new]) do |f| %>
-  <%#= f.input :nickname, :label => "Give it a Nickname?"%>
-  <%#= f.association :pokemon, as: :select %>
-  <%= f.hidden_field :pokemon_id, value: params[:id].to_i %>
-  <%= f.button :submit, class: "btn btn-primary" %>
-  <% end %>
-<% end %>
-
+<%= link_to "<", pokemons_path, class: "btn btn-info go" %>
 <div class="container-fluid">
       <div class="row">
         <div class="col-xl-10 offset-xl-1">
           <div class="row">
             <div class="col-lg-6">
-              <%= link_to "<", pokemons_path, class: "btn btn-primary" %>
+              <div class="back">
+
               <div class="hero-text">
                 <h1><%= @pokemon.number %></h1>
                 <h2><%= @pokemon.name %></h2>
+                <div class="addition">
+                <% if current_user.user_pokemons.length < 3 %>
+                  <%= simple_form_for([current_user, UserPokemon.new]) do |f| %>
+
+                  <%= f.hidden_field :pokemon_id, value: params[:id].to_i %>
+                  <%= f.button :submit, class: "btn btn-success addition", value: "Add to Team" %>
+                  <% end %>
+                <% end %>
+              </div>
                 <p><%= @pokemon.description %></p>
               </div>
+              </div>
+
               <div class="hero-info">
                 <h2>Info</h2>
                 <ul>
-                  <li><span>Type</span><%= @pokemon.kind_of %></li>
-                  <li><span>Attack</span><%= @pokemon.attack_name %></li>
-                  <li><span>Damage</span><%= @pokemon.attack_value %></li>
-                  <li><span>Health</span><%= @pokemon.hp %></li>
+                  <li><span class="cat">Type</span><span class="stats"><%= @pokemon.kind_of %></span></li>
+                  <li><span class="cat">Attack</span><span class="stats"><%= @pokemon.attack_name %></span></li>
+                  <li><span class="cat">Damage</span><span class="stats"><%= @pokemon.attack_value ? @pokemon.attack_value : "Status Ability" %></span></li>
+                  <li><span class="cat">Health</span><span class="stats"><%= @pokemon.hp %></span></li>
                 </ul>
               </div>
             </div>
             <div class="col-lg-6">
               <div class="hero-image" style="background-image: url(<%= @pokemon.picture %>)">
               </div>
+
             </div>
 
 
