@@ -1,7 +1,35 @@
-<h1><%= @pokemon.name %></h1>
+<section class="hero-section">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xl-10 offset-xl-1">
+          <div class="row">
+            <div class="col-lg-6">
+              <%= link_to "<", pokemons_path, class: "btn btn-primary" %>
+              <div class="hero-text">
+                <h1><%= @pokemon.number %></h1>
+                <h2><%= @pokemon.name %></h2>
+                <p><%= @pokemon.description %></p>
+              </div>
+              <div class="hero-info">
+                <h2>Info</h2>
+                <ul>
+                  <li><span>Type</span><%= @pokemon.kind_of %></li>
+                  <li><span>Attack</span><%= @pokemon.attack_name %></li>
+                  <li><span>Damage</span><%= @pokemon.attack_value %></li>
+                  <li><span>Health</span><%= @pokemon.hp %></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <figure class="hero-image">
+                <img src="<%= @pokemon.picture %>" alt="5">
+              </figure>
+            </div>
 
-<ul>
-  <li> <%= @pokemon.number %> </li>
-  <li><%= @pokemon.attack_name %></li>
-  <li><%= @pokemon.region %></li>
-</ul>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+

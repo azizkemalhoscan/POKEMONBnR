@@ -4,5 +4,5 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :user_pokemons
-  has_many :pokemons, through: :user_pokemons
+  has_many :pokemons, through: :user_pokemon
 end
