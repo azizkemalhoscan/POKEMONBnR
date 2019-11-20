@@ -7,6 +7,15 @@
 
 <p>My Pokemon</p>
 
+<ul>
+<% @user.pokemons.each do |pokemon| %>
+  <li><%= pokemon.name %></li>
+<% end %>
+</ul>
+
+<%= link_to "Add Pokemon", new_user_user_pokemon_path(current_user), class: "btn btn-primary" %>
+
+--------------------
 
 <!-- Each do -->
 <% @pokemon = Pokemon.first %>
@@ -69,4 +78,3 @@
 
 
 </div>
-
