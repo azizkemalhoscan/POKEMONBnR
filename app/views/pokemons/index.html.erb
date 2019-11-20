@@ -1,63 +1,24 @@
-<h1>Pokemon index</h1>
 
-<!--
-<div class="frow">
-  <%# @pokemons.each do |p| %>
-    <div class="card m-3 d-flex inline" style="width: 18rem;">
+<h1>PokeDex</h1>
 
-      <img src= "<%#= p.picture %>" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title"><%#= p.name %></h5>
-        <h6 class="card-subtitle mb-2 text-muted">Lorem Ipsum</h6>
-        <p class="card-text" style="color: black">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+<div class="cards-list" >
 
-        <%#= link_to "Learn More", pokemon_path(p), class: "btn btn-primary" %>
-      </div>
+  <% @pokemons.each do |pokemon|  %>
+
+    <div class="cust-card 1 pokemon">
+      <%= link_to pokemon_path(pokemon) do %>
+        <div class="card_image">
+          <img src="<%= pokemon.picture %>"/>
+        </div>
+        <div class="card_title title-black">
+          <p ><%= pokemon.name %></p>
+        </div>
+      <% end %>
     </div>
-  <%# end %>
+  <% end %>
 </div>
- -->
 
-
-<!--  <div class="card-pokemon flexbox">
-  <%# @pokemons.each do |p| %>
-      <img src="<%#= p.picture %>">
-
-    <div class="pokemon-info">
-      <h2><%#= p.name %></h2>
-      <p>You will be pleasantly satisfied with your vintage styled headphones.</p>
-    </div>
-  <%# end %>
-</div> -->
-
- <div class="cards-pokemon">
-  <div class="card-pokemon">
-  <%# @pokemons.each do |p| %>
-    <img src="<%= Pokemon.last.picture %>">
-
-    <div class="pokemon-info">
-      <h2><%= Pokemon.last.name %></h2>
-      <p>Caterpie has a voracious appetite. It can devour leaves bigger than its body right before your eyes. From its antenna, this Pokémon releases a terrifically strong odor.
-
-</p>
-    </div>
-  <%# end %>
-  </div>
-
-
-  <div class="container m-0">
-    <div class="rows">
-      <div class="col-sm-12 col-md-6 col-lg-4">
-        <%# @pokemons.each do |p| %>
-          <img src="<%= Pokemon.first.picture %>">
-
-          <div class="pokemon-info">
-            <h2><%= Pokemon.first.name %></h2>
-            <p>You will be pleasantly satisfied with your vintage styled headphones.</p>
-          </div>
-        <%# end %>
-
-      </div>
-    </div>
-  </div>
+<div class="pagination">
+  <%= will_paginate @pokemons, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+</div>
 
