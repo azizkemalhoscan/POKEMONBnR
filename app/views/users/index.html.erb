@@ -31,25 +31,20 @@ Sort by: <%= link_to "Rank desc", users_path(sort: 'rank_desc') %> |  <%= link_t
 
 
 
-<% @users.each do |user| %>
+<%# @users.each do |user| %>
 <div class="card-product">
     <div class="division_ranks">
-      <h5><%= user.id %></h5>
+      <h5><%= current_user.id %></h5>
     </div>
   <img class="avatar-square" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://vignette.wikia.nocookie.net/295e578f-a7d1-4240-bc80-303bcfd62dc8">
-<p class="warrior-name"><%=link_to user.username, user_path(user) %></p>
+<p class="warrior-name"><%=link_to current_user.username, user_path(current_user) %></p>
   <div class="card-product-infos">
-    <%= user.energy %>
-    <img class="avatar-large" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1g_MnBTfa1liZzl7VDJq8SPMugVI0-1HcW9cqOLb23mBuGXxg&s">
-    <img class="avatar-large" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoWnvDgGJiF6YJdt76dqAg1Rq3WSVhPLZD57P0LmQjcW8TBfMa&s">
-    <img class="avatar-large" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://i.pinimg.com/originals/04/05/32/04053236f63533a2faac32a15cd7dfc1.gif">
+    <%= current_user.energy %>
+    <%current_user.user_pokemons.each do |pair| %>
+      <% @pokemon = pair.pokemon %>
+          <img class="avatar-large" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="<%= @pokemon.picture %>">
+    <% end %>
   </div>
 </div>
-<% end %>
-
-
-<%@user.user_pokemons.each do |pair| %>
-  <%= pair.pokemon.name %>
-<% end %>
 
 
