@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <% if current_user %>
     <%= link_to user_path(current_user) , class: "navbar-brand" do %>
-      <%= image_tag "pokeball.png" %>
+      <%= image_tag "pokeball.png", class: "logo" %>
       <% end %>
   <% end %>
 
@@ -13,14 +13,14 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-        <li class="nav-item active">
-          <%= link_to "Community", users_path, class: "nav-link" %>
+        <li class="nav-item">
+          <%= link_to "Community", users_path, class: "nav-link", style:"color:white" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Pokemon", pokemons_path, class: "nav-link" %>
+          <%= link_to "Pokemon", pokemons_path, class: "nav-link", style:"color:white" %>
         </li>
         <li class="nav-item">
-          <%= link_to "My Pokemon", user_path(current_user), class: "nav-link" %>
+          <%= link_to "My Pokemon", user_path(current_user), class: "nav-link", style:"color:white" %>
         </li>
         <li class="nav-item dropdown">
           <%= image_tag "https://loremflickr.com/320/240", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
