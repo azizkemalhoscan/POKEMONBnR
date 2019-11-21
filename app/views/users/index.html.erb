@@ -45,8 +45,10 @@ Sort by: <%= link_to "Rank desc", users_path(sort: 'rank_desc') %> |  <%= link_t
     <div class="division_ranks">
       <h5>#<%= counter+=1 %></h5>
     </div>
+
   <img class="avatar-square" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://loremflickr.com/320/240">
 <p class="warrior-name"><%=link_to user.username.capitalize, user_path(user) %></p>
+
   <div class="card-product-infos">
     <%user.user_pokemons.each do |pair| %>
       <% @pokemon = pair.pokemon %>
