@@ -6,4 +6,11 @@ class User < ApplicationRecord
   has_many :user_pokemons
   has_many :pokemons, through: :user_pokemon
   validates :user_pokemons, length: { maximum: 3 }
+
+  include PgSearch::Model
+  pg_search_scope :global_search,
+    against: [:username],
+    using: {
+      tsearch: { prefix: true }
+    }
 end

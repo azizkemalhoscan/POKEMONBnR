@@ -9,6 +9,8 @@ class UsersController < ApplicationController
       elsif params[:sort] == "rank_asc"
         @users = policy_scope(User).sort_by { |u| u.energy }
       end
+    elsif params[:query]
+      @users = policy_scope(User).global_search(params[:query])
     end
   end
 
@@ -19,7 +21,7 @@ class UsersController < ApplicationController
   private
 
   def set_user
-    if current_user 
+    if current_user
       @user = User.find(params[:id])
     else
       redirect_to landing_path
