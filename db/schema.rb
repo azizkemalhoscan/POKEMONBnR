@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_20_060205) do
+ActiveRecord::Schema.define(version: 2019_11_21_111008) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,10 +21,7 @@ ActiveRecord::Schema.define(version: 2019_11_20_060205) do
     t.string "kind_of"
     t.string "attack_name"
     t.integer "attack_value"
-    t.integer "inventory"
     t.string "picture"
-    t.string "region"
-    t.integer "energy"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "number"
@@ -39,7 +36,6 @@ ActiveRecord::Schema.define(version: 2019_11_20_060205) do
   create_table "user_pokemons", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "pokemon_id"
-    t.string "nickname"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["pokemon_id"], name: "index_user_pokemons_on_pokemon_id"
@@ -56,8 +52,6 @@ ActiveRecord::Schema.define(version: 2019_11_20_060205) do
     t.datetime "updated_at", null: false
     t.string "username"
     t.string "avatar"
-    t.integer "pokeball"
-    t.integer "energy"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
