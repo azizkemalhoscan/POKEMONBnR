@@ -61,14 +61,16 @@
         </h4>
       </div>
     </figcaption>
-    <%= link_to "Remove from team", user_user_pokemon_path(current_user, pair),
-      method: :delete,
-      class: "btn btn-primary" %>
+    <% if @user.user_pokemons.length < 3 %>
+      <%= link_to "Remove from team", user_user_pokemon_path(current_user, pair),
+        method: :delete,
+        class: "btn btn-primary" %>
+    <% end %>
   </figure>
 </div>
 <% end %>
 
-<% if current_user.user_pokemons.length < 3 %>
+<% if @user.user_pokemons.length < 3 %>
   <%= link_to "Add Pokemon", pokemons_path, class: "btn btn-primary" %>
 <% end %>
 
