@@ -55,8 +55,6 @@ pokemon_attack_value = moves['power']
 
 pokemon_picture = html_doc.search('.profile-images img').attribute('src').value
 
-pokemon_region = "Kanto"
-
 pokemon_description = html_doc.search('.version-y').text.strip
 
 
@@ -74,7 +72,6 @@ pokemon_description = html_doc.search('.version-y').text.strip
   kind_of: pokemon_kind,
   attack_name: pokemon_attack_name,
   attack_value: pokemon_attack_value,
-  region: pokemon_region,
   picture: pokemon_picture
 })
 
@@ -90,8 +87,6 @@ puts 'Creating Users...'
     email: Faker::Internet.email,
     username: Faker::Internet.username,
     password: "123123",
-    pokeball: rand(1..10),
-    energy: rand(1..5)
   })
 end
 
@@ -102,7 +97,6 @@ puts 'Assigning 3 pokemons to users...'
 User.all.each do |user|
   3.times do
     UserPokemon.create! ({
-      nickname: Faker::Internet.username,
       pokemon: Pokemon.all.sample,
       user: user
     })

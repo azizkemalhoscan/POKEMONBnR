@@ -23,7 +23,12 @@
           <%= link_to "My Pokemon", user_path(current_user), class: "nav-link" %>
         </li>
         <li class="nav-item dropdown">
-          <%= image_tag "https://loremflickr.com/320/240", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% if current_user.photo.attached? %>
+            <%= cl_image_tag(current_user.photo.key, :transformation=>[
+              {:width=>400, :height=>400, :gravity=>"auto", :radius=>"max", :crop=>"crop"},
+              {:width=>40, :crop=>"scale"}
+              ]) %>
+          <% end %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Action", "#", class: "dropdown-item" %>
             <%= link_to "Another action", "#", class: "dropdown-item" %>
