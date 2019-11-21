@@ -55,13 +55,15 @@
 
   <% you = User.find(@battle.enemy_id) %>
 
-  <% if session[:enemy_poke_id].present? %>
-    <% @enemy_pokemon = Pokemon.find(session[:enemy_poke_id].to_i)  %>
-  <% else %>
-    <% @enemy_pokemon = you.pokemons.sample %>
-    <% session[:enemy_poke_id] = @enemy_pokemon.id %>
-  <% end %>
+<!--   <%# if session[:enemy_poke_id].present? %>
+    <%# @enemy_pokemon = Pokemon.find(session[:enemy_poke_id].to_i)  %>
+  <%# else %>
+    <%# @enemy_pokemon = you.pokemons.sample %>
+    <%# session[:enemy_poke_id] = @enemy_pokemon.id %>
+  <%# end %> -->
   
+  <% @enemy_pokemon = you.pokemons.sample %>
+
   <% @type = @enemy_pokemon.kind_of.downcase %>
 
   <div class="d-flex flex-column">

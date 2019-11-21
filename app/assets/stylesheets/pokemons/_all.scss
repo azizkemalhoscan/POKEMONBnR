@@ -7,7 +7,7 @@
 }
 
 .cust-card {
-  margin: 30px auto;
+  margin: 20px;
   width: 300px;
   height: 300px;
   border-radius: 40px;
@@ -15,13 +15,18 @@
   cursor: pointer;
   transition: 0.4s;
 
-
   &:hover {
     transform: scale(0.9, 0.9);
     box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25),
       -5px -5px 30px 15px rgba(0,0,0,0.22);
+    text-decoration: none;
   }
 }
+
+cust-card:hover p {
+  text-decoration: none;
+}
+
 .cust-card .card_image {
   width: inherit;
   height: inherit;

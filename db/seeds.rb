@@ -5,9 +5,10 @@ require "faker"
 
 puts 'Cleaning database...'
 
-UserPokemon.destroy_all
-Pokemon.destroy_all
-User.destroy_all
+# UserPokemon.destroy_all
+# Pokemon.destroy_all
+# User.destroy_all
+# Battle.destroy_all
 
 puts 'Creating Pokemon...'
 
