@@ -1,0 +1,72 @@
+<h1 class="username">SELECT YOUR FIGHTER</h1>
+
+<h2 class="my-pokemon">My Pokemon</h2>
+
+
+<div class="container d-flex justify-content-around">
+
+<% current_user.user_pokemons.each do |pair| %>
+
+<% @pokemon = pair.pokemon %>
+<% @type = @pokemon.kind_of.downcase %>
+
+
+<div class="cust-cards d-flex flex-column">
+
+	<%= simple_form_for(@battle) do |f| %>
+
+	  <%= f.hidden_field :pokemon_id, value: @pokemon.id %>
+	  <%= f.hidden_field :enemy_id, value: params[:enemy_id] %>
+	  
+	  <%= f.button :submit, class: "btn btn-success addition", value: "USE" %>
+
+	<% end %>
+
+	<figure class="card card--<%= @type%>">
+
+		<div class="card__image-container">
+			<img src="<%= @pokemon.picture %>" alt="Eevee" class="card__image">
+		</div>
+
+		<figcaption class="card__caption">
+			<h1 class="card__name"><%= @pokemon.name %></h1>
+
+			<h3 class="card__type">
+				<%= @pokemon.kind_of %>
+			</h3>
+
+			<table class="card__stats">
+				<tbody>
+					<tr>
+						<th>HP</th>
+						<td><%= @pokemon.hp %></td>
+					</tr>
+					<tr>
+						<th>Attack</th>
+						<td><%= @pokemon.attack %></td>
+					</tr>
+
+					<tr>
+						<th>Defense</th>
+						<td><%= @pokemon.defense %></td>
+					</tr>
+
+					<tr>
+						<th>Special Attack</th>
+						<td><%= @pokemon.special_attack %></td>
+					</tr>
+					<tr>
+						<th>Special Defense</th>
+						<td><%= @pokemon.special_defense%></td>
+					</tr>
+					<tr>
+						<th>Speed</th>
+						<td><%= @pokemon.speed %></td>
+					</tr>
+				</tbody>
+			</table>
+		</figcaption>
+	</figure>
+</div>
+<% end %>
+</div>

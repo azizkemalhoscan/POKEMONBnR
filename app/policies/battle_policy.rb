@@ -1,4 +1,4 @@
-class PokemonPolicy < ApplicationPolicy
+class BattlePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
@@ -13,7 +13,11 @@ class PokemonPolicy < ApplicationPolicy
     true
   end
 
-  def show?
+  def new?
     true
+  end
+
+  def show?
+  	true
   end
 end
