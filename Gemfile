@@ -36,4 +36,6 @@ gem 'pundit'
 gem 'will_paginate', '~> 3.1.7'
 gem 'bootstrap-will_paginate'
 gem 'will_paginate-bootstrap4'
+gem 'pg_search', '~> 2.3.0'
+
 

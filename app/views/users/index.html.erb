@@ -29,7 +29,15 @@
 
 Sort by: <%= link_to "Rank desc", users_path(sort: 'rank_desc') %> |  <%= link_to "Rank asc", users_path(sort: 'rank_asc') %>
 
+<%= form_tag users_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control ml-3",
+    placeholder: "Search for a user"
+  %>
 
+  <%= submit_tag "Search", class: "btn btn-primary mt-1" %>
+<% end %>
 
 <% counter = 0 %>
 <%@users.each do |user| %>
@@ -37,7 +45,7 @@ Sort by: <%= link_to "Rank desc", users_path(sort: 'rank_desc') %> |  <%= link_t
     <div class="division_ranks">
       <h5>#<%= counter+=1 %></h5>
     </div>
-  <img class="avatar-square" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://vignette.wikia.nocookie.net/295e578f-a7d1-4240-bc80-303bcfd62dc8">
+  <img class="avatar-square" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://loremflickr.com/320/240">
 <p class="warrior-name"><%=link_to user.username.capitalize, user_path(user) %></p>
   <div class="card-product-infos">
     <%user.user_pokemons.each do |pair| %>
@@ -46,8 +54,8 @@ Sort by: <%= link_to "Rank desc", users_path(sort: 'rank_desc') %> |  <%= link_t
           <div class="pokemon-box-width">
             <p><%= @pokemon.name %></p>
             <p><%= @pokemon.hp %></p>
-            <p><%= @pokemon.region %></p>
-            <td>
+<!--             <p><%#= @pokemon.region %></p>
+ -->            <td>
             ----
             </td>
           </div>
