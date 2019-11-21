@@ -9,6 +9,8 @@ class UsersController < ApplicationController
       elsif params[:sort] == "rank_asc"
         @users = policy_scope(User).sort_by { |u| u.energy }
       end
+    elsif params[:query]
+      @users = policy_scope(User).global_search(params[:query])
     end
   end
 

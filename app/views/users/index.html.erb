@@ -29,7 +29,15 @@
 
 Sort by: <%= link_to "Rank desc", users_path(sort: 'rank_desc') %> |  <%= link_to "Rank asc", users_path(sort: 'rank_asc') %>
 
+<%= form_tag users_path, method: :get do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control ml-3",
+    placeholder: "Search for a user"
+  %>
 
+  <%= submit_tag "Search", class: "btn btn-primary mt-1" %>
+<% end %>
 
 <% counter = 0 %>
 <%@users.each do |user| %>
@@ -72,6 +80,7 @@ Sort by: <%= link_to "Rank desc", users_path(sort: 'rank_desc') %> |  <%= link_t
         <%= cl_image_tag current_user.photo.key, crop: :fill, class: "avatar" %>
       <% else %>
         <img class="avatar " src="https://vignette.wikia.nocookie.net/295e578f-a7d1-4240-bc80-303bcfd62dc8">
+
       <% end %>
     </div>
     <div class="col-md-3 warrior-name">
