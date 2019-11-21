@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_21_115437) do
+ActiveRecord::Schema.define(version: 2019_11_21_182728) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,15 @@ ActiveRecord::Schema.define(version: 2019_11_21_115437) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "battles", force: :cascade do |t|
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "enemy_id"
+    t.boolean "win", default: false
+    t.index ["user_id"], name: "index_battles_on_user_id"
   end
 
   create_table "pokemons", force: :cascade do |t|
@@ -78,6 +87,7 @@ ActiveRecord::Schema.define(version: 2019_11_21_115437) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "battles", "users"
   add_foreign_key "user_pokemons", "pokemons"
   add_foreign_key "user_pokemons", "users"
 end

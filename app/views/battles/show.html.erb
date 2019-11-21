@@ -1,0 +1,114 @@
+<div class="container d-flex justify-content-around align-items-center mt-3">
+  <% me = @battle.user %>
+  <% @pokemon = Pokemon.find(params[:pokemon_id]) %>
+  <% @type = @pokemon.kind_of.downcase %>
+
+  <div class="d-flex flex-column">
+    <h2><%= me.username %></h2>
+    <div class="cust-cards">
+      <figure class="card card--<%= @type%>">
+        <div class="card__image-container">
+          <img src="<%= @pokemon.picture %>" alt="Eevee" class="card__image">
+        </div>
+
+        <figcaption class="card__caption">
+          <h1 class="card__name"><%= @pokemon.name %></h1>
+
+          <h3 class="card__type">
+            <%= @pokemon.kind_of %>
+          </h3>
+
+          <table class="card__stats">
+            <tbody><tr>
+              <th>HP</th>
+              <td><%= @pokemon.hp %></td>
+            </tr>
+            <tr>
+              <th>Attack</th>
+              <td><%= @pokemon.attack %></td>
+            </tr>
+
+            <tr>
+              <th>Defense</th>
+              <td><%= @pokemon.defense %></td>
+            </tr>
+
+            <tr>
+              <th>Special Attack</th>
+              <td><%= @pokemon.special_attack %></td>
+            </tr>
+            <tr>
+              <th>Special Defense</th>
+              <td><%= @pokemon.special_defense%></td>
+            </tr>
+            <tr>
+              <th>Speed</th>
+              <td><%= @pokemon.speed %></td>
+            </tr>
+          </tbody></table>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+
+  <h1>VS</h1>
+
+  <% you = User.find(@battle.enemy_id) %>
+
+  <% if session[:enemy_poke_id].present? %>
+    <% @enemy_pokemon = Pokemon.find(session[:enemy_poke_id].to_i)  %>
+  <% else %>
+    <% @enemy_pokemon = you.pokemons.sample %>
+    <% session[:enemy_poke_id] = @enemy_pokemon.id %>
+  <% end %>
+  
+  <% @type = @enemy_pokemon.kind_of.downcase %>
+
+  <div class="d-flex flex-column">
+    <h2><%= you.username %></h2>
+    <div class="cust-cards">
+      <figure class="card card--<%= @type%>">
+        <div class="card__image-container">
+          <img src="<%= @enemy_pokemon.picture %>" alt="Eevee" class="card__image">
+        </div>
+
+        <figcaption class="card__caption">
+          <h1 class="card__name"><%= @enemy_pokemon.name %></h1>
+
+          <h3 class="card__type">
+            <%= @enemy_pokemon.kind_of %>
+          </h3>
+
+          <table class="card__stats">
+            <tbody><tr>
+              <th>HP</th>
+              <td><%= @enemy_pokemon.hp %></td>
+            </tr>
+            <tr>
+              <th>Attack</th>
+              <td><%= @enemy_pokemon.attack %></td>
+            </tr>
+
+            <tr>
+              <th>Defense</th>
+              <td><%= @enemy_pokemon.defense %></td>
+            </tr>
+
+            <tr>
+              <th>Special Attack</th>
+              <td><%= @enemy_pokemon.special_attack %></td>
+            </tr>
+            <tr>
+              <th>Special Defense</th>
+              <td><%= @enemy_pokemon.special_defense%></td>
+            </tr>
+            <tr>
+              <th>Speed</th>
+              <td><%= @enemy_pokemon.speed %></td>
+            </tr>
+          </tbody></table>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</div>

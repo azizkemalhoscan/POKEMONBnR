@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   	resources :user_pokemons, only: [:new, :create, :destroy]
   end
 
+  resources :battles, only: [:new, :create, :show]
+
   get '/landing', to: 'pages#home', as: 'landing'
 end
 

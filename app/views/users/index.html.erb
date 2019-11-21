@@ -30,66 +30,44 @@
 Sort by: <%= link_to "Rank desc", users_path(sort: 'rank_desc') %> |  <%= link_to "Rank asc", users_path(sort: 'rank_asc') %>
 
 <%= form_tag users_path, method: :get do %>
-  <%= text_field_tag :query,
-    params[:query],
-    class: "form-control ml-3",
-    placeholder: "Search for a user"
+<%= text_field_tag :query,
+params[:query],
+class: "form-control ml-3",
+  placeholder: "Search for a user"
   %>
 
   <%= submit_tag "Search", class: "btn btn-primary mt-1" %>
-<% end %>
-
-<% counter = 0 %>
-<%@users.each do |user| %>
-<div class="card-product">
-  <div class="division_ranks">
-    <h5>#<%= counter+=1 %></h5>
-  </div>
-  <% if current_user.photo.attached? %>
-    <%= cl_image_tag current_user.photo.key, crop: :fill, class: "avatar" %>
-  <% else %>
-    <img class="avatar " src="https://vignette.wikia.nocookie.net/295e578f-a7d1-4240-bc80-303bcfd62dc8">
   <% end %>
-  <p class="warrior-name"><%=link_to user.username.capitalize, user_path(user) %></p>
-  <div class="card-product-infos">
-    <%user.user_pokemons.each do |pair| %>
-    <% @pokemon = pair.pokemon %>
-    <div>
-      <img src="<%= @pokemon.picture %>">
-      <div class="pokemon-box-width">
-        <p><%= @pokemon.name %></p>
-      </div>
-    </div>
-    <% end %>
-  </div>
-</div>
-<% end %>
 
-<%@users.each do |user| %>
- <div class="card-product">
-  <div class="container">
-  <div class="row align-items-center">
-    <div class="col-md-1">
-      <div class="division_ranks">
-        <h5>#<%= counter+=1 %></h5>
-      </div>
-  
-    </div>
-    <div class="col-md-1">
-      <% if current_user.photo.attached? %>
-        <%= cl_image_tag current_user.photo.key, crop: :fill, class: "avatar" %>
-      <% else %>
-        <img class="avatar " src="https://vignette.wikia.nocookie.net/295e578f-a7d1-4240-bc80-303bcfd62dc8">
+  <% counter = 0 %>
 
-      <% end %>
-    </div>
-    <div class="col-md-3 warrior-name">
-      <td class="align-middle">
-      <%=link_to user.username.capitalize, user_path(user) %>
-    </td>
-    </div>
-    <div class="col-md-7 card-product-infos">
-      <%user.user_pokemons.each do |pair| %>
+  <%@users.each do |user| %>
+  <div class="card-product">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-1">
+          <div class="division_ranks">
+            <h5>#<%= counter+=1 %></h5>
+          </div>
+        </div>
+        <div class="col-md-1">
+          <% if user.photo.attached? %>
+          <%= cl_image_tag(current_user.photo.key, :transformation=>[
+              {:width=>400, :height=>400, :gravity=>"auto", :radius=>"max", :crop=>"crop"},
+              {:width=>40, :crop=>"scale"}
+              ]) %>
+          <% else %>
+          <img class="avatar " src="https://vignette.wikia.nocookie.net/295e578f-a7d1-4240-bc80-303bcfd62dc8">
+
+          <% end %>
+        </div>
+        <div class="col-md-3 warrior-name">
+          <td class="align-middle">
+            <%=link_to user.username.capitalize, user_path(user) %>
+          </td>
+        </div>
+        <div class="col-md-4 card-product-infos">
+          <%user.user_pokemons.each do |pair| %>
           <% @pokemon = pair.pokemon %>
           <div>
             <img src="<%= @pokemon.picture %>">
@@ -98,11 +76,26 @@ Sort by: <%= link_to "Rank desc", users_path(sort: 'rank_desc') %> |  <%= link_t
             </div>
           </div>
           <% end %>
+        </div>
+        <div class="col-md-1">
+
+            <p>400</p>
+
+        </div>
+        <div class="col-md-1">
+          <div>
+            <p>60%</p>
+          </div>
+        </div>        
+        <div class="col-md-1">
+
+         <%= link_to "Battle", new_battle_path(user_id: current_user, enemy_id: user.id), class: "btn btn-success addition"  %>
+
+        </div>
+      </div>
     </div>
   </div>
-      </div>
-</div>
-<% end %>
+  <% end %>
 
 
 
