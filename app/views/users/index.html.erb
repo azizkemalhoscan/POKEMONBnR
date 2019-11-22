@@ -1,4 +1,5 @@
-<h1 class="header-index">Indigo League</h1>
+<div class="container justify-content-center">
+<h1 class="header-index"><strong>INDIGO LEAGUE</strong></h1>
 
 <!-- <div class="sort_by">
   <div class="rdlLb"><span class="jQgLo">Sort By</span></div>
@@ -27,20 +28,45 @@
   </select>
 </div> -->
 
+<%= form_tag users_path, method: :get, class: "d-flex" do %>
+  <%= text_field_tag :query, params[:query], class: "form-control", placeholder: "Search for a user..."%>
+  <%= submit_tag "Search", class: "btn btn-primary", style: "margin:0 0 0 5px !important" %>
+<% end %>
+
 Sort by: <%= link_to "Rank desc", users_path(sort: 'rank_desc') %> |  <%= link_to "Rank asc", users_path(sort: 'rank_asc') %>
-
-<%= form_tag users_path, method: :get do %>
-<%= text_field_tag :query,
-params[:query],
-class: "form-control ml-3",
-  placeholder: "Search for a user"
-  %>
-
-  <%= submit_tag "Search", class: "btn btn-primary mt-1" %>
-  <% end %>
 
 
   <% counter = 0 %>
+  <div class="card-product small">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-1">
+          <div class="division_ranks">
+            <h5><strong>RANK</strong></h5>
+          </div>
+        </div>
+        <div class="col-md-1">
+          <h5><strong>AVATAR</strong></h5>
+        </div>
+        <div class="col-md-3">
+            <h5><strong>TRAINER NAME</strong></h5>
+        </div>
+        <div class="col-md-4">
+          <h5><strong>CURRENT TEAM</strong></h5>
+        </div>
+        <div class="col-md-1">
+            <h5><strong>BATTLES FOUGHT</strong></h5>
+        </div>
+        <div class="col-md-1">
+            <h5><strong>WIN RATE</strong></h5>
+        </div>        
+        <div class="col-md-1">
+          <h5><strong>BATTLE!</strong></h5>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
   <%@users.each do |user| %>
   <div class="card-product">
@@ -97,6 +123,7 @@ class: "form-control ml-3",
     </div>
   </div>
   <% end %>
+  </div>
 
 
 

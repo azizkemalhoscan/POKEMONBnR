@@ -1,20 +1,19 @@
-<div class="bg">
   <div class="banner">
 
-    <%= image_tag "pokemon_logo.png", alt: "alttext", class: "pokemon-logo center"%>
+    <div class="container">
 
-    <div class="content">
-      <p class="normal">Are you ready to</p>
-      <p class="italic">catch 'em all?</p>
-    </div>
+      <div class="content">
+        <%= image_tag "pokemon_logo.png", alt: "alttext", class: "pokemon-logo"%>
+        <p class="italic">Are you ready to catch 'em all?</p>
+      </div>
 
-    <div class="button-container flexbox">
+      <div class="button-container d-flex justify-content-center flex-wrap flex-column">
         <% path = current_user ? user_path(current_user) : new_user_session_path %>
         <%= link_to "Absolutely!", path, class: "cus-btn btn-1"  %>
 
         <%= link_to "What is Pokemon?", "https://www.livemint.com/Sundayapp/Z7zHxltyWtFNzcoXPZAbjI/A-brief-history-of-Pokmon.html", :target => "_blank", class: "cus-btn btn-1"  %>
 
+      </div>
     </div>
 
-   </div>
- </div>
+  </div>

@@ -15,17 +15,21 @@
 }
 
 .btn-1 {
+  margin: 15px auto;
+  align-items: center;
+  width: 40%;
   background: #cb4e4e;
   color: #fff;
-  box-shadow: 0 6px #ab3c3c;
+  box-shadow: 1px 3px #ab3c3c;
   -webkit-transition: none;
   -moz-transition: none;
   transition: none;
   border-radius: 40px;
 
   &:hover {
-    box-shadow: 0 4px #ab3c3c;
-    top: 2px;
+    background-color: #ab3c3c;
+    transition: 0.2s;
+    box-shadow: none;
     color: #fff;
     text-decoration: none;
   }

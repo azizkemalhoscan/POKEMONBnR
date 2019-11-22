@@ -1,10 +1,9 @@
 class PokemonsController < ApplicationController
-
   def index
     if params[:query].present?
       @pokemons = policy_scope(Pokemon).global_search(params[:query])
     else
-      @pokemons = policy_scope(Pokemon).paginate(page: params[:page]).per_page(8)
+      @pokemons = policy_scope(Pokemon).paginate(page: params[:page]).per_page(10)
     end
     authorize @pokemons
   end
