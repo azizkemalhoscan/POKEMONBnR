@@ -1,3 +1,5 @@
+
+
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Open+Sans+Condensed:300,700');
 body {
   font-family: "Open Sans", Helvetica, sans-serif;
@@ -34,6 +36,23 @@ h1, h2, h3, h4, h5 {
   margin-top: 1em;
   display: inline-flex;
 }
+
+#add-btn {
+  background-color: #3A6EA5;
+
+}
+
+// #remove-btn {
+//   background-color: #C0C0C0;
+//   padding: 0.075em;
+//   text-decoration: none !important;
+//   color: black;
+//   border-radius: 2px;
+
+
+// }
+
+
 
 .card {
   display: inline-block;

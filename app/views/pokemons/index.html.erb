@@ -1,14 +1,15 @@
 <div class="container">
-<h1 style="margin: 15px auto;"><strong>POKEDEX</strong></h1>
+<h1 class="mt-4" style="margin: 15px auto;"><strong>POKEDEX</strong></h1>
 
-<div class="form-group">
-  <%= form_tag pokemons_path, method: :get, class: "d-flex" do %>
+<div class="search__container">
+  <%= form_tag pokemons_path, method: :get, class: "mt-0" do %>
   <%= text_field_tag :query,
     params[:query],
-    class: "form-control",
+    class: "search__input",
     placeholder: "Search for a pokemon, type, move" %>
-  <%= submit_tag "Search", class: "btn btn-primary", style: "margin:0 0 0 5px !important" %>
-  <% end %> 
+  <% submit_tag %>
+  <% end %>
+
 </div>
 
 <div class="cards-list" >
@@ -17,7 +18,7 @@
 
       <div class="cust-card 1 pokemon">
         <%= link_to pokemon_path(pokemon) do %>
-          <div class="card_image" style="background-image: url(<%= pokemon.picture %>)"></div>
+          <div class="card_image m-1" style="background-image: url(<%= pokemon.picture %>)"></div>
           <div class="card_title title-black">
             <p ><%= pokemon.name %></p>
           </div>
@@ -25,6 +26,9 @@
       </div>
     <% end %>
   </div>
+
+
+
 
 <div class="pagination">
   <% if params[:query].present? %>

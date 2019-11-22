@@ -1,22 +1,15 @@
-@import "show";
 
-.card-product-infos img {
-
-  height: 50px;
-  width: 50px;
-}
-
-
-.battle-btn  {
+.choose-btn  {
   width: 50px;
   background-color: #7A8FA5;
   padding: 9px ;
-  padding-left: 14px;
-  padding-right: 13px;
+  // padding-left: 14px;
+  // padding-right: 13px;
   border-radius: 3px;
   color: white;
   text-decoration: none !important;
   text-align: center;
+  width: 90px;
 
   &:hover {
     color: white;
