@@ -1,43 +1,12 @@
-// .navbar-lewagon {
-//   justify-content: space-between;
-//   background: #cb4e4f;
-// }
-
-// .navbar-lewagon .navbar-collapse {
-//   flex-grow: 0;
-// }
-
-// .navbar-lewagon .navbar-brand img {
-//   width: 40px;
-// }
-
-// #navbarDropdown {
-//   height: 50px;
-//   width: 50px;
-// }
-
-// .nav-link {
-//   // border:
-//   color: white;
-// }
-
-// .navbar .logo {
-//   height: 25px;
-//   width: 25px;
-//   margin: 0px;
-//   padding: 0px;
-
-// }
-
-// Logo
+.navbar-lewagon {
+  justify-content: space-between;
+  background: #E92D38;
 
 #logo {
   max-height: 92px;
   display: inline-block;
   margin: 0;
 }
-
-
 
 .menu:hover .menu__link:not(:hover){
   color: #241c69;
