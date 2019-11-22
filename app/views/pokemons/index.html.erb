@@ -1,15 +1,15 @@
+<div class="container">
+<h1 style="margin: 15px auto;"><strong>POKEDEX</strong></h1>
 
-<h1 id="pokedex">PokeDex</h1>
-
-<%= form_tag pokemons_path, method: :get do %>
+<div class="form-group">
+  <%= form_tag pokemons_path, method: :get, class: "d-flex" do %>
   <%= text_field_tag :query,
     params[:query],
-    class: "form-control ml-3",
-    placeholder: "Search for a pokemon, type, move"
-  %>
-
-  <%= submit_tag "Search", class: "btn btn-primary mt-1" %>
-<% end %>
+    class: "form-control",
+    placeholder: "Search for a pokemon, type, move" %>
+  <%= submit_tag "Search", class: "btn btn-primary", style: "margin:0 0 0 5px !important" %>
+  <% end %> 
+</div>
 
 <div class="cards-list" >
 
@@ -31,5 +31,6 @@
   <% else %>
   <%= will_paginate @pokemons, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
   <% end %>
+</div>
 </div>
 

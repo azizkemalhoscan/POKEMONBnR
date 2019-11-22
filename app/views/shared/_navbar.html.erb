@@ -22,7 +22,7 @@
         <li class="nav-item">
           <%= link_to "My Pokemon", user_path(current_user), class: "nav-link" %>
         </li>
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown uservatar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <% if current_user.photo.attached? %>
             <%= cl_image_tag(current_user.photo.key, :transformation=>[
               {:width=>400, :height=>400, :gravity=>"auto", :radius=>"max", :crop=>"crop"},

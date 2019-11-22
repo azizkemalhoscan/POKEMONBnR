@@ -1,4 +1,4 @@
-<h1 class="username"><%= @user.username %></h1>
+<h1 class="username"><strong><%= @user.username.capitalize %></strong></h1>
 
 <h2 class="my-pokemon">My Pokemon</h2>
 
@@ -53,7 +53,7 @@
       <!-- <div class="card__abilities">
         <h4 class="card__ability">
           <span class="card__label">Move</span>
-          <%= @pokemon.attack_name %>
+          <%#= @pokemon.attack_name %>
         </h4>
         <h4 class="card__ability">
           <span class="card__label">Value</span>
@@ -65,13 +65,16 @@
     <% if @user.user_pokemons.length <= 3 && @user == current_user %>
       <%= link_to "Remove from team", user_user_pokemon_path(current_user, pair),
         method: :delete,
-        class: "btn btn-success" %>
+        class: "btn btn-warning" %>
     <% end %>
   </figure>
 </div>
 <% end %>
-
 <% if @user.user_pokemons.length < 3 %>
-  <%= link_to "Add Pokemon", pokemons_path, class: "btn btn-primary" %>
+<div class="cust-cards">
+  <figure class="card card--<%= @type%> text-center">
+  <%= link_to "Add Pokemon", pokemons_path, style:"color:white;" %>
+</figure>
+<div class="cust-cards">
 <% end %>
 

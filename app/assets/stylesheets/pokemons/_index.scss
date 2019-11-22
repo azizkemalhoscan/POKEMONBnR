@@ -1,28 +1,35 @@
+body {
+  background-image: linear-gradient(to bottom, rgba(200,200,200,0.1),rgba(200,200,200,0.1)), url(pokeballz.png);
+  background-size: cover;
+}
+
 .cards-list {
-  z-index: 0;
-  width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   flex-wrap: wrap;
 }
 
 .cust-card {
-  margin: 30px auto;
-  width: 300px;
-  height: 300px;
-  border-radius: 40px;
-  box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
+  margin: 15px auto;
+  width: 200px;
+  height: 200px;
+  border-radius: 20px;
+  box-shadow: 2px 2px 10px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
   cursor: pointer;
   transition: 0.4s;
-
+  background-color: white;
 
   &:hover {
-    transform: scale(0.9, 0.9);
+    transform: scale(1.2, 1.2);
     box-shadow: 5px 5px 30px 15px rgba(0,0,0,0.25),
       -5px -5px 30px 15px rgba(0,0,0,0.22);
   }
-}
-.cust-card .card_image {
+
+  a {
+    text-decoration: none;
+  }
+
+  .card_image {
   width: inherit;
   height: inherit;
   border-radius: 40px;
@@ -31,19 +38,25 @@
   background-position: center;
   height: 80%;
   background-repeat: no-repeat;
+  }
 
-}
-
-.cust-card .card_title {
+  .card_title {
   text-align: center;
   border-radius: 0px 0px 40px 40px;
   font-family: sans-serif;
   font-weight: bold;
   font-size: 30px;
-}
+  }
 
-.title-black {
+  .title-black {
   color: black;
+  }
+
+  p {
+    font-weight:lighter;
+    font-size: 26px;
+    letter-spacing: .1em;
+  }
 }
 
 #pokedex {
@@ -55,7 +68,6 @@
   margin-top: 0.5em;
   display: flex;
   justify-content: space-around;
-
 }
 
 

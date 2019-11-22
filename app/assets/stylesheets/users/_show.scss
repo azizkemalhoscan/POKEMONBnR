@@ -11,6 +11,9 @@ body {
   margin-top: 0.2em;
 }
 
+.uservatar {
+  cursor: pointer;
+}
 .my-pokemon {
   font-size: 30px;
   line-height: normal;
@@ -248,12 +251,12 @@ h1, h2, h3, h4, h5 {
   position: relative;
   transition: 0.4s;
 
-  @for $i from 1 through 9 {
-    &:nth-child(#{$i}) {
-      $rotation: (5 - random(10)) + deg;
-      transform: translateY(0px) rotate($rotation);
-    }
-  }
+  // @for $i from 1 through 9 {
+  //   &:nth-child(#{$i}) {
+  //     $rotation: (5 - random(10)) + deg;
+  //     transform: translateY(0px) rotate($rotation);
+  //   }
+  // }
 
   &:hover {
     z-index: 5;
