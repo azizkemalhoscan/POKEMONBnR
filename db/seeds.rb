@@ -61,6 +61,7 @@ until counter == 151
       pokemon_one_move["type"] = pokemon_move_type
       pokemon_one_move["learned_at"] = pokemon_move_learned_at
     end
+
     pokemon_all_moves << pokemon_one_move if pokemon_one_move && pokemon_one_move["power"] != nil
   end
   #-----------------------

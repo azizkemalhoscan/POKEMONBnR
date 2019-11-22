@@ -1,18 +1,25 @@
-<p>Health Bar</p>
+<div class="final-message"></div>
+
+
+<h2 class="mt-0">This is your time to shine!</h2>
+
 
 <div class="container d-flex justify-content-around align-items-center mt-3">
   <% me = @battle.user %>
   <% @pokemon = Pokemon.find(params[:pokemon_id]) %>
   <% @type = @pokemon.kind_of.downcase %>
 
-  <%#= @pokemon.moves.sample(2) %>
-
-  <% @sample_moves = [{"name"=>"Twister", "power"=>40, "accuracy"=>100, "pp"=>20, "type"=>"dragon", "learned_at"=>0}, {"name"=>"Round", "power"=>60, "accuracy"=>100, "pp"=>15, "type"=>"normal", "learned_at"=>0}] %>
-
-
+  <%@moves = @pokemon.moves.sample(2) %>
 
   <div class="d-flex flex-column">
-    <h2><%= me.username %></h2>
+
+    <div class="mt-3">
+      <h2><%= me.username %></h2>
+      <div class="mt-3">
+        <h6><strong>Health:</strong></h6>
+        <progress id="health-player-one" value="100" max="100" ></progress>
+      </div>
+    </div>
     <div class="cust-cards">
       <figure class="card card--<%= @type%>">
         <div class="card__image-container">
@@ -20,7 +27,7 @@
         </div>
 
         <figcaption class="card__caption">
-          <h1 class="card__name mt-2"><%= @pokemon.name %></h1>
+          <h1 class="card__name mt-2" data-hp="<%= @pokemon.hp %>" id="pokemon-one-name"><%= @pokemon.name %></h1>
 
           <h3 class="card__type">
             <%= @pokemon.kind_of %>
@@ -33,9 +40,10 @@
                 <td>Value</td>
               </tr>
 
-              <% @sample_moves.each do |move| %>
+              <% @moves.each do |move| %>
               <tr>
-                <th><button class="btnd btn--border"><%= move["name"] %></button></th>
+                <th><button class="btn btn--border player-one" data-movename="<%= move["name"] %>" data-movevalue="<%= move["power"] %>"><%= move["name"].upcase %></button></th>
+
                 <td><%= move["power"] %></td>
             </tr>
             <% end %>
@@ -60,8 +68,16 @@
 
   <% @type = @enemy_pokemon.kind_of.downcase %>
 
-  <div class="d-flex flex-column">
-    <h2><%= you.username %></h2>
+  <% @enemy_moves = @enemy_pokemon.moves.sample(2) %>
+
+<div class="d-flex flex-column">
+<div class="mt-3">
+      <h2><%= you.username %></h2>
+      <div class="mt-3">
+        <h6><strong>Health:</strong></h6>
+        <progress id="health-player-two" value="100" max="100" ></progress>
+      </div>
+</div>
     <div class="cust-cards">
       <figure class="card card--<%= @type%>">
         <div class="card__image-container">
@@ -69,7 +85,8 @@
         </div>
 
         <figcaption class="card__caption">
-          <h1 class="card__name mt-2"><%= @enemy_pokemon.name %></h1>
+
+          <h1 class="card__name mt-2" data-hp="<%= @enemy_pokemon.hp %>" data-moveone="<%= @enemy_moves[0]["power"] %>" data-movetwo="<%= @enemy_moves[1]["power"] %>" id="pokemon-two-name"><%= @enemy_pokemon.name %></h1>
 
           <h3 class="card__type">
             <%= @enemy_pokemon.kind_of %>
@@ -79,8 +96,8 @@
 
             <ul>
               <li class="moves-list m-3"> <strong>Available Moves</strong> </li>
-              <% @sample_moves.each do |move| %>
-              <li class="moves mt-3 mr-5"><%= move["name"] %></li>
+              <% @enemy_moves.each do |move| %>
+              <li class="moves mt-3 mr-5 player-two" data-movename="<%= move["name"] %>" data-movevalue="<%= move["power"] %>" data-hp="<%= @pokemon.hp %>"><%= move["name"]%></li>
               <% end %>
             </ul>
             <!-- <tbody>
