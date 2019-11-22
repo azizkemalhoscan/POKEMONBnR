@@ -1,7 +1,19 @@
+<p>Health Bar</p>
+
+
+
+
+
 <div class="container d-flex justify-content-around align-items-center mt-3">
   <% me = @battle.user %>
   <% @pokemon = Pokemon.find(params[:pokemon_id]) %>
   <% @type = @pokemon.kind_of.downcase %>
+
+  <%#= @pokemon.moves.sample(2) %>
+
+  <% @sample_moves = [{"name"=>"Twister", "power"=>40, "accuracy"=>100, "pp"=>20, "type"=>"dragon", "learned_at"=>0}, {"name"=>"Round", "power"=>60, "accuracy"=>100, "pp"=>15, "type"=>"normal", "learned_at"=>0}] %>
+
+
 
   <div class="d-flex flex-column">
     <h2><%= me.username %></h2>
@@ -19,32 +31,13 @@
           </h3>
 
           <table class="card__stats">
-            <tbody><tr>
-              <th>HP</th>
-              <td><%= @pokemon.hp %></td>
+            <tbody>
+              <% @sample_moves.each do |move| %>
+              <tr>
+                <th><%= move["name"] %></th>
+                <td><%= move["power"] %></td>
             </tr>
-            <tr>
-              <th>Attack</th>
-              <td><%= @pokemon.attack %></td>
-            </tr>
-
-            <tr>
-              <th>Defense</th>
-              <td><%= @pokemon.defense %></td>
-            </tr>
-
-            <tr>
-              <th>Special Attack</th>
-              <td><%= @pokemon.special_attack %></td>
-            </tr>
-            <tr>
-              <th>Special Defense</th>
-              <td><%= @pokemon.special_defense%></td>
-            </tr>
-            <tr>
-              <th>Speed</th>
-              <td><%= @pokemon.speed %></td>
-            </tr>
+            <% end %>
           </tbody></table>
         </figcaption>
       </figure>
@@ -61,7 +54,7 @@
     <%# @enemy_pokemon = you.pokemons.sample %>
     <%# session[:enemy_poke_id] = @enemy_pokemon.id %>
   <%# end %> -->
-  
+
   <% @enemy_pokemon = you.pokemons.sample %>
 
   <% @type = @enemy_pokemon.kind_of.downcase %>

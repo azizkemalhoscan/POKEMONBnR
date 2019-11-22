@@ -149,29 +149,29 @@ until counter == 151
     special_attack: pokemon_special_attack,
     defense: pokemon_defense,
     attack: pokemon_attack,
-    moves: pokemon_all_moves,
     weakness: pokemon_weakness,
+    moves: pokemon_all_moves,
   })
 
-  puts "#{pokemon_name} has been created."
+  puts "#{pokemon_name} has been created. #{counter} of 151 Pokemon created."
 
-  #Creation of Pokemon Instances
-@pokemon = Pokemon.create! ({
-  name: pokemon_name,
-  number: pokemon_number,
-  description: pokemon_description,
-  speed: pokemon_speed,
-  special_defense: pokemon_special_defense,
-  special_attack: pokemon_special_attack,
-  defense: pokemon_defense,
-  attack: pokemon_attack,
-  hp: pokemon_hp,
-  kind_of: pokemon_kind,
-  attack_name: pokemon_attack_name,
-  attack_value: pokemon_attack_value,
-  picture: pokemon_picture
-})
-  
+  #Creation of Pokemon Instances - old
+# @pokemon = Pokemon.create! ({
+#   name: pokemon_name,
+#   number: pokemon_number,
+#   description: pokemon_description,
+#   speed: pokemon_speed,
+#   special_defense: pokemon_special_defense,
+#   special_attack: pokemon_special_attack,
+#   defense: pokemon_defense,
+#   attack: pokemon_attack,
+#   hp: pokemon_hp,
+#   kind_of: pokemon_kind,
+#   attack_name: pokemon_attack_name,
+#   attack_value: pokemon_attack_value,
+#   picture: pokemon_picture
+# })
+
 end
 
 puts "All #{counter} Pokemon Created"

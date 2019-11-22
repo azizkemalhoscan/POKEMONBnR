@@ -1,45 +1,21 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <% if current_user %>
-    <%= link_to user_path(current_user) , class: "navbar-brand" do %>
-      <%= image_tag "pokeball.png", class: "logo" %>
-      <% end %>
-  <% end %>
-
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
 
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <% if user_signed_in? %>
-        <li class="nav-item">
-          <%= link_to "Community", users_path, class: "nav-link", style:"color:white" %>
+
+<div class="page">
+  <nav class="menu">
+    <ul class="menu__list">
+      <%= image_tag "pokeball.png", id: "logo" %>
+
+        <% if current_user %>
+        <li class="menu__group"><%= link_to "Community", users_path, class: "menu__link" %></li>
+        <li class="menu__group"><%= link_to "Pokemon", pokemons_path, class: "menu__link" %></li>
+        <li class="menu__group"><%= link_to "My Pokemon", user_path(current_user), class: "menu__link" %></li>
+        <li class="menu__group">
+          <%= link_to "Sign Out", destroy_user_session_path(current_user), class: "menu__link" %>
+        <% else %>
+          <%= link_to "Sign Up", new_user_session_path, class: "menu__link sign-up" %>
+        <% end %>
         </li>
-        <li class="nav-item">
-          <%= link_to "Pokemon", pokemons_path, class: "nav-link", style:"color:white" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "My Pokemon", user_path(current_user), class: "nav-link", style:"color:white" %>
-        </li>
-        <li class="nav-item dropdown uservatar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <% if current_user.photo.attached? %>
-            <%= cl_image_tag(current_user.photo.key, :transformation=>[
-              {:width=>400, :height=>400, :gravity=>"auto", :radius=>"max", :crop=>"crop"},
-              {:width=>40, :crop=>"scale"}
-              ]) %>
-          <% end %>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Action", "#", class: "dropdown-item" %>
-            <%= link_to "Another action", "#", class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-          </div>
-        </li>
-      <% else %>
-        <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </li>
-      <% end %>
     </ul>
-  </div>
+  </nav>
 </div>

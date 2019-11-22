@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_one_attached :photo
   has_many :user_pokemons
-  has_many :battles
+  has_many :battles, dependent: :destroy
   has_many :pokemons, through: :user_pokemons
   validates :user_pokemons, length: { maximum: 3 }
 

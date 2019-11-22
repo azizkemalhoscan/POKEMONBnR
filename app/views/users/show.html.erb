@@ -61,9 +61,9 @@
 <% end %>
 <% if @user.user_pokemons.length < 3 %>
 <div class="cust-cards">
-  <figure class="card card--<%= @type%> text-center">
+  <figure class="card text-center" id="add-btn">
   <%= link_to "Add Pokemon", pokemons_path, style:"color:white;" %>
 </figure>
-<div class="cust-cards">
+<div id="add-btn">
 <% end %>
 
