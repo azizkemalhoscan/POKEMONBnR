@@ -1,11 +1,4 @@
 
-
-@import url('https://fonts.googleapis.com/css?family=Open+Sans|Open+Sans+Condensed:300,700');
-body {
-  font-family: "Open Sans", Helvetica, sans-serif;
-  text-align: center;
-}
-
 .username {
   font-size: 75px;
   line-height: normal;
@@ -56,7 +49,10 @@ h1, h2, h3, h4, h5 {
 
 .card {
   display: inline-block;
-  width: 300px;
+  // width: 300px;
+  min-height: 550px;
+  min-width: 350px;
+
   padding: 1em;
   border-radius: 15px;
   margin: 10px;
@@ -83,7 +79,6 @@ h1, h2, h3, h4, h5 {
     transform: translateY(-50%);
     color: #ffffff;
     text-transform: uppercase;
-    font-family: "Open Sans Condensed", "Open Sans", helvetica, sans-serif;
     letter-spacing: 0.1em;
     padding: 0.25em;
     line-height: 1;
@@ -101,7 +96,6 @@ h1, h2, h3, h4, h5 {
 
 
   &__name {
-    font-family: "Open Sans Condensed", "Open Sans", helvetica, sans-serif;
     text-align: center;
     font-size: 1.5em;
     font-weight: 700;
@@ -111,7 +105,6 @@ h1, h2, h3, h4, h5 {
   &__stats {
     margin: 1em 0;
     th {
-      font-family: "Open Sans Condensed", "Open Sans", helvetica, sans-serif;
       text-align: right;
       font-weight: 300;
     }

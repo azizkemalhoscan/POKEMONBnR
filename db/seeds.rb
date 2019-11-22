@@ -98,10 +98,9 @@ until counter == 151
       pokemon_one_move["learned_at"] = pokemon_move_learned_at
     end
 
-    pokemon_all_moves << pokemon_one_move
+    pokemon_all_moves << pokemon_one_move if pokemon_one_move && pokemon_one_move["power"] != nil
 
   end
-
   #-----------------------
   #Populating the CSV File
 
@@ -184,6 +183,7 @@ puts 'Creating Users...'
     email: Faker::Internet.email,
     username: Faker::Internet.username,
     password: "123123",
+    avatar: " "
   })
 end
 
