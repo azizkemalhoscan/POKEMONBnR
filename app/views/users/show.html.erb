@@ -1,81 +1,81 @@
-<<<<<<< HEAD
-  <div class="container p-3 my-5 rounded" style="background-color: white; min-height: 70vh;">
+  <div class="container p-3 my-5 rounded" style="background-color: white;">
     <div class="row justify-content-center">
       <div class="col-md-12">
-        <h1 class="username"><strong><%= @user.username.capitalize %></strong></h1>
+        <h1 class="username" style="color: black;"><strong><%= @user.username.capitalize %></strong></h1>
       </div>
     </div>
     <div class="row justify-content-center">
       <% if @user != current_user %>
-  <%= link_to "Battle!", new_battle_path(user_id: current_user, enemy_id: @user.id), id:"add-btn", class: "btn" %>
-  <% else %>
-  <h2 class="my-pokemon">My Pokemon</h2>
-  <% end %>
-  </div>
+        <%= link_to "Battle!", new_battle_path(user_id: current_user, enemy_id: @user.id), id:"add-btn", class: "btn" %>
+      <% else %>
+        <h2 class="my-pokemon">My Pokemon</h2>
+      <% end %>
+    </div>
 
 
-  <% @user.user_pokemons.each do |pair| %>
+    <% @user.user_pokemons.each do |pair| %>
 
-  <% @pokemon = pair.pokemon %>
-  <% @type = @pokemon.kind_of.downcase %>
+      <% @pokemon = pair.pokemon %>
+      <% @type = @pokemon.kind_of.downcase %>
 
 
-  <div class="cust-cards">
-    <figure class="card card--<%= @type%>">
-      <div class="card__image-container">
-        <img src="<%= @pokemon.picture %>" alt="Eevee" class="card__image">
+      <div class="cust-cards">
+        <figure class="card card--<%= @type%>">
+          <div class="card__image-container">
+            <img src="<%= @pokemon.picture %>" alt="Eevee" class="card__image">
+          </div>
+
+          <figcaption class="card__caption">
+            <h1 class="card__name"><%= @pokemon.name %></h1>
+
+            <h3 class="card__type">
+              <%= @pokemon.kind_of %>
+            </h3>
+
+            <table class="card__stats">
+              <tbody><tr>
+                <th>HP</th>
+                <td><%= @pokemon.hp %></td>
+              </tr>
+              <tr>
+                <th>Attack</th>
+                <td><%= @pokemon.attack %></td>
+              </tr>
+
+              <tr>
+                <th>Defense</th>
+                <td><%= @pokemon.defense %></td>
+              </tr>
+
+              <tr>
+                <th>Special Attack</th>
+                <td><%= @pokemon.special_attack %></td>
+              </tr>
+              <tr>
+                <th>Special Defense</th>
+                <td><%= @pokemon.special_defense%></td>
+              </tr>
+              <tr>
+                <th>Speed</th>
+                <td><%= @pokemon.speed %></td>
+              </tr>
+            </tbody></table>
+
+          </figcaption>
+          <% if @user == current_user %>
+            <%= link_to "Remove", user_user_pokemon_path(current_user, pair),method: :delete,class: "btn-success btn float-right"%> 
+          <% end %>
+        </figure>
       </div>
-
-      <figcaption class="card__caption">
-        <h1 class="card__name"><%= @pokemon.name %></h1>
-
-        <h3 class="card__type">
-          <%= @pokemon.kind_of %>
-        </h3>
-
-        <table class="card__stats">
-          <tbody><tr>
-            <th>HP</th>
-            <td><%= @pokemon.hp %></td>
-          </tr>
-          <tr>
-            <th>Attack</th>
-            <td><%= @pokemon.attack %></td>
-          </tr>
-
-          <tr>
-            <th>Defense</th>
-            <td><%= @pokemon.defense %></td>
-          </tr>
-
-          <tr>
-            <th>Special Attack</th>
-            <td><%= @pokemon.special_attack %></td>
-          </tr>
-          <tr>
-            <th>Special Defense</th>
-            <td><%= @pokemon.special_defense%></td>
-          </tr>
-          <tr>
-            <th>Speed</th>
-            <td><%= @pokemon.speed %></td>
-          </tr>
-        </tbody></table>
-
-      </figcaption>
-      <% if @user == current_user %>
-      <%= link_to "Remove", user_user_pokemon_path(current_user, pair),
-      method: :delete,
-      class: "btn-success btn float-right"%>
-      <% end %>
-    </figure>
+    <% end %>
+    <% if @user.user_pokemons.length < 3 %>
+      <div class="cust-cards">
+        <figure class="card text-center" id="add-btn">
+          <%= link_to "Add a Pokemon", pokemons_path, style:"color:white;" %>
+        </figure>
+      </div>
+    <% end %>
   </div>
-  <% end %>
-  <% if @user.user_pokemons.length < 3 %>
-  <div class="cust-cards">
-    <figure class="card text-center" id="add-btn">
-      <%= link_to "Add a Pokemon", pokemons_path, style:"color:white;" %>
-    </figure>
-    <div id="add-btn">
-      <% end %>
+</div>
+
 
