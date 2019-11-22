@@ -1,9 +1,9 @@
-<h1 class="username">SELECT YOUR FIGHTER</h1>
+<h1 class="username mt-3">Hello <%= current_user.username %>,</h1>
 
-<h2 class="my-pokemon">My Pokemon</h2>
+<h2 class="my-pokemon">Please choose the Pokemon you would like to battle with from your team</h2>
 
 
-<div class="container d-flex justify-content-around">
+<div class="container d-flex justify-content-around mt-2">
 
 <% current_user.user_pokemons.each do |pair| %>
 
@@ -17,8 +17,8 @@
 
 	  <%= f.hidden_field :pokemon_id, value: @pokemon.id %>
 	  <%= f.hidden_field :enemy_id, value: params[:enemy_id] %>
-	  
-	  <%= f.button :submit, class: "btn btn-success addition", value: "USE" %>
+
+	  <%= f.button :submit, class: "choose-btn", value: "Choose" %>
 
 	<% end %>
 

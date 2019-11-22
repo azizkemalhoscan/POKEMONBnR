@@ -1,0 +1,87 @@
+
+.header {
+  padding: 20px 30px;
+  position: relative;
+  outline: none;
+  color: black;
+  background-color: transparent;
+  margin: 20px;
+  white-space: nowrap;
+  letter-spacing: 1px;
+  text-align: center !important;
+  }
+
+
+.btn {
+  padding: 20px 30px;
+  cursor: pointer;
+  position: relative;
+  border: 2px solid #5F4842;
+  outline: none;
+  color: black;
+  background-color: transparent;
+  margin: 20px;
+  white-space: nowrap;
+  letter-spacing: 1px;
+
+  &--border {
+    &::after,
+    &::before,
+    span::after,
+    span::before {
+      content: "";
+      position: absolute;
+      background-color: #5F4842;
+      transition: 0.5s ease;
+    }
+    &::after,
+    &::before {
+      height: 100%;
+      width: 2px;
+      top: -2px;
+    }
+    &::after {
+      left: -2px;
+    }
+    &::before {
+      right: -2px;
+    }
+    span::after,
+    span::before {
+      height: 2px;
+      width: 100%;
+      left: -2px;
+    }
+    span::after {
+      top: -2px;
+    }
+    span::before {
+      bottom: -2px;
+    }
+    &:hover:after {
+      transform: translatex(-12px);
+    }
+    &:hover:before {
+      transform: translatex(12px);
+    }
+    &:hover span::after {
+      transform: translatey(-12px);
+    }
+    &:hover span::before {
+      transform: translatey(12px);
+    }
+  }
+}
+
+.moves-list {
+  list-style: none;
+  list-style-position: center;
+}
+
+.moves {
+  list-style: none;
+  list-style-position: center;
+  border: 2px solid #5F4842;
+  padding: 20px 30px;
+  text-align:center;
+}

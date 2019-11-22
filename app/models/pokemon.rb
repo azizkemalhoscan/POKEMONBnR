@@ -6,7 +6,7 @@ class Pokemon < ApplicationRecord
 
   include PgSearch::Model
   pg_search_scope :global_search,
-    against: [:name, :kind_of],
+    against: [:name, :kind_of, :move],
     using: {
       tsearch: { prefix: true }
     }

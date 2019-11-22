@@ -1,7 +1,19 @@
+<p>Health Bar</p>
+
+
+
+
+
 <div class="container d-flex justify-content-around align-items-center mt-3">
   <% me = @battle.user %>
   <% @pokemon = Pokemon.find(params[:pokemon_id]) %>
   <% @type = @pokemon.kind_of.downcase %>
+
+  <%#= @pokemon.moves.sample(2) %>
+
+  <% @sample_moves = [{"name"=>"Twister", "power"=>40, "accuracy"=>100, "pp"=>20, "type"=>"dragon", "learned_at"=>0}, {"name"=>"Round", "power"=>60, "accuracy"=>100, "pp"=>15, "type"=>"normal", "learned_at"=>0}] %>
+
+
 
   <div class="d-flex flex-column">
     <h2><%= me.username %></h2>
@@ -12,39 +24,25 @@
         </div>
 
         <figcaption class="card__caption">
-          <h1 class="card__name"><%= @pokemon.name %></h1>
+          <h1 class="card__name mt-2"><%= @pokemon.name %></h1>
 
           <h3 class="card__type">
             <%= @pokemon.kind_of %>
           </h3>
 
           <table class="card__stats">
-            <tbody><tr>
-              <th>HP</th>
-              <td><%= @pokemon.hp %></td>
-            </tr>
-            <tr>
-              <th>Attack</th>
-              <td><%= @pokemon.attack %></td>
-            </tr>
+            <tbody>
+              <tr>
+                <th class="header mr-1">Available Moves</button></th>
+                <td>Value</td>
+              </tr>
 
-            <tr>
-              <th>Defense</th>
-              <td><%= @pokemon.defense %></td>
+              <% @sample_moves.each do |move| %>
+              <tr>
+                <th><button class="btn btn--border"><%= move["name"] %></button></th>
+                <td><%= move["power"] %></td>
             </tr>
-
-            <tr>
-              <th>Special Attack</th>
-              <td><%= @pokemon.special_attack %></td>
-            </tr>
-            <tr>
-              <th>Special Defense</th>
-              <td><%= @pokemon.special_defense%></td>
-            </tr>
-            <tr>
-              <th>Speed</th>
-              <td><%= @pokemon.speed %></td>
-            </tr>
+            <% end %>
           </tbody></table>
         </figcaption>
       </figure>
@@ -61,7 +59,7 @@
     <%# @enemy_pokemon = you.pokemons.sample %>
     <%# session[:enemy_poke_id] = @enemy_pokemon.id %>
   <%# end %> -->
-  
+
   <% @enemy_pokemon = you.pokemons.sample %>
 
   <% @type = @enemy_pokemon.kind_of.downcase %>
@@ -75,40 +73,31 @@
         </div>
 
         <figcaption class="card__caption">
-          <h1 class="card__name"><%= @enemy_pokemon.name %></h1>
+          <h1 class="card__name mt-2"><%= @enemy_pokemon.name %></h1>
 
           <h3 class="card__type">
             <%= @enemy_pokemon.kind_of %>
           </h3>
 
           <table class="card__stats">
-            <tbody><tr>
-              <th>HP</th>
-              <td><%= @enemy_pokemon.hp %></td>
-            </tr>
-            <tr>
-              <th>Attack</th>
-              <td><%= @enemy_pokemon.attack %></td>
-            </tr>
 
-            <tr>
-              <th>Defense</th>
-              <td><%= @enemy_pokemon.defense %></td>
-            </tr>
+            <ul>
+              <li class="moves-list m-3"> <strong>Available Moves</strong> </li>
+              <% @sample_moves.each do |move| %>
+              <li class="moves mt-3 mr-5"><%= move["name"] %></li>
+              <% end %>
+            </ul>
+            <!-- <tbody>
+              <tr>
+                <th class="header">Available Moves</th>
+              </tr>
+                <%# @sample_moves.each do |move| %>
+                <tr>
+                  <th class="btn btn--border"><%#= move["name"] %></th>
+              </tr>
+              <% #end %>
 
-            <tr>
-              <th>Special Attack</th>
-              <td><%= @enemy_pokemon.special_attack %></td>
-            </tr>
-            <tr>
-              <th>Special Defense</th>
-              <td><%= @enemy_pokemon.special_defense%></td>
-            </tr>
-            <tr>
-              <th>Speed</th>
-              <td><%= @enemy_pokemon.speed %></td>
-            </tr>
-          </tbody></table>
+          </tbody></table> -->
         </figcaption>
       </figure>
     </div>
