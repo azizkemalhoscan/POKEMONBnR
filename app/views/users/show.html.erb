@@ -51,10 +51,10 @@
       </tbody></table>
 
     </figcaption>
-    <% if @user.user_pokemons.length <= 3 && @user == current_user %>
-      <%= link_to "Remove from team", user_user_pokemon_path(current_user, pair),
+    <% if @user == current_user %>
+      <%= link_to "Remove", user_user_pokemon_path(current_user, pair),
         method: :delete,
-        class: "btn btn-warning" %>
+        class: "btn-success btn float-right"%>
     <% end %>
   </figure>
 </div>
@@ -62,7 +62,7 @@
 <% if @user.user_pokemons.length < 3 %>
 <div class="cust-cards">
   <figure class="card text-center" id="add-btn">
-  <%= link_to "Add Pokemon", pokemons_path, style:"color:white;" %>
+  <%= link_to "Add a Pokemon", pokemons_path, style:"color:white;" %>
 </figure>
 <div id="add-btn">
 <% end %>

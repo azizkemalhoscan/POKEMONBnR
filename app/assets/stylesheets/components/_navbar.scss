@@ -1,7 +1,3 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: #E92D38;
-
 #logo {
   max-height: 92px;
   display: inline-block;
@@ -23,7 +19,8 @@
 }
 
 .menu__group{
-  flex-grow: 1;
+  flex-grow: 1; 
+  align-self: center;
 }
 
 .menu__link{
@@ -34,13 +31,15 @@
   margin-left: 2em;
 }
 
+#uservatar {
+  width: 25%;
+}
 
 .menu{
   // background-color: #6c5ce7;
   // background-color: #EAF4F4;
-  background-color: #e3360d ;
-
-
+  //background-color: #e3360d ;
+  background-color: #e92e37;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .12), 0 1px 2px 0 rgba(0, 0, 0, .24);
 }
 
@@ -54,7 +53,6 @@
   text-decoration: none !important;
   text-transform: uppercase;
 }
-
 
 /* hover animation */
 
