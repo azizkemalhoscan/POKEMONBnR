@@ -1,43 +1,8 @@
-// .navbar-lewagon {
-//   justify-content: space-between;
-//   background: #cb4e4f;
-// }
-
-// .navbar-lewagon .navbar-collapse {
-//   flex-grow: 0;
-// }
-
-// .navbar-lewagon .navbar-brand img {
-//   width: 40px;
-// }
-
-// #navbarDropdown {
-//   height: 50px;
-//   width: 50px;
-// }
-
-// .nav-link {
-//   // border:
-//   color: white;
-// }
-
-// .navbar .logo {
-//   height: 25px;
-//   width: 25px;
-//   margin: 0px;
-//   padding: 0px;
-
-// }
-
-// Logo
-
 #logo {
   max-height: 92px;
   display: inline-block;
   margin: 0;
 }
-
-
 
 .menu:hover .menu__link:not(:hover){
   color: #241c69;
@@ -54,7 +19,8 @@
 }
 
 .menu__group{
-  flex-grow: 1;
+  flex-grow: 1; 
+  align-self: center;
 }
 
 .menu__link{
@@ -65,13 +31,15 @@
   margin-left: 2em;
 }
 
+#uservatar {
+  width: 25%;
+}
 
 .menu{
   // background-color: #6c5ce7;
   // background-color: #EAF4F4;
-  background-color: #e3360d ;
-
-
+  //background-color: #e3360d ;
+  background-color: #e92e37;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .12), 0 1px 2px 0 rgba(0, 0, 0, .24);
 }
 
@@ -85,7 +53,6 @@
   text-decoration: none !important;
   text-transform: uppercase;
 }
-
 
 /* hover animation */
 

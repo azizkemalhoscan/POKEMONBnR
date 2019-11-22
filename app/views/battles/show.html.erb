@@ -3,6 +3,7 @@
 
 <h2 class="mt-0">This is your time to shine!</h2>
 
+
 <div class="container d-flex justify-content-around align-items-center mt-3">
   <% me = @battle.user %>
   <% @pokemon = Pokemon.find(params[:pokemon_id]) %>
@@ -42,6 +43,7 @@
               <% @moves.each do |move| %>
               <tr>
                 <th><button class="btn btn--border player-one" data-movename="<%= move["name"] %>" data-movevalue="<%= move["power"] %>"><%= move["name"].upcase %></button></th>
+
                 <td><%= move["power"] %></td>
             </tr>
             <% end %>

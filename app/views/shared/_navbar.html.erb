@@ -1,20 +1,24 @@
-
-
-
 <div class="page">
   <nav class="menu">
     <ul class="menu__list">
-      <%= image_tag "pokeball.png", id: "logo" %>
+        <%= image_tag "pokeball.png", id: "logo" %>
 
         <% if current_user %>
         <li class="menu__group"><%= link_to "Community", users_path, class: "menu__link" %></li>
         <li class="menu__group"><%= link_to "Pokemon", pokemons_path, class: "menu__link" %></li>
         <li class="menu__group"><%= link_to "My Pokemon", user_path(current_user), class: "menu__link" %></li>
-        <li class="menu__group">
-          <%= link_to "Sign Out", destroy_user_session_path(current_user), class: "menu__link" %>
+        <li class="menu__group"><%= link_to "Sign Out", destroy_user_session_path, method: :delete,  class: "menu__link" %></li>
+        <li class="menu__group"><%= cl_image_tag(current_user.photo.key, :transformation=>[
+              {:width=>400, :height=>400, :gravity=>"auto", :radius=>"max", :crop=>"crop"},
+              {:width=>40, :crop=>"scale"}
+              ], id:"uservatar", style: "border-radius:50%") %></li>
         <% else %>
-          <%= link_to "Sign Up", new_user_session_path, class: "menu__link sign-up" %>
+        <li class="menu__group"><%= link_to "Community", users_path, class: "menu__link" %></li>
+        <li class="menu__group"><%= link_to "Pokemon", pokemons_path, class: "menu__link" %></li>
+        <li class="menu__group"><%= link_to "My Pokemon", new_user_session_path, class: "menu__link" %></li>
+        <li class="menu__group"><%= link_to "Sign Up", new_user_registration_path, class: "menu__link" %></li>
         <% end %>
+
         </li>
     </ul>
   </nav>

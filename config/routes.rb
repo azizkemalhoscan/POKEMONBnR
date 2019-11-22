@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'pages#home'
+  root to: 'pages#landing'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :pokemons, only: [:index, :show] 
   	
@@ -11,8 +11,8 @@ Rails.application.routes.draw do
 
   resources :battles, only: [:new, :create, :show]
 
-  get '/landing', to: 'pages#home', as: 'landing'
-  get '/dashboard', to: 'pages#dashboard', as: 'dashboard'
+  get '/landing', to: 'pages#landing', as: 'landing'
+  get '/home', to: 'pages#home', as: 'home'
 end
 
 
