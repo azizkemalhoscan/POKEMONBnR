@@ -1,55 +1,55 @@
-<%= link_to "<", pokemons_path, class: "btn btn-info go" %>
-
-<div class="container-fluid">
-      <div class="row">
-        <div class="col-xl-10 offset-xl-1">
-          <div class="row">
-            <div class="col-lg-6">
-              <div class="back">
-
-              <div class="hero-text">
-                <h1><%= @pokemon.number %></h1>
-                <h2><%= @pokemon.name %></h2>
-                <div class="addition">
-                <% if current_user.user_pokemons.length < 3 %>
-                  <%= simple_form_for([current_user, UserPokemon.new]) do |f| %>
-
-                  <%= f.hidden_field :pokemon_id, value: params[:id].to_i %>
-                  <%= f.button :submit, class: "btn btn-success addition", value: "Add to Team" %>
-                  <% end %>
-                <% end %>
-              </div>
-                <p><%= @pokemon.description %></p>
-              </div>
-              </div>
-
-              <div class="hero-info">
-                <h2>Info</h2>
-                <ul>
-                  <li><span class="cat">Type</span><span class="stats"><%= @pokemon.kind_of %></span></li>
-                  <li><span class="cat">Health</span><span class="stats"><%= @pokemon.hp %></span></li>
-                </ul>
-              </div>
-              <div class="hero-info">
-                <h2>Testing Moves</h2>
-                <% @pokemon.moves.each do |move| %>
-                <ul>
-                <% if move != nil %>
-                  <li><span class="cat">Name</span><span class="stats"><%= move["name"] %></span></li>
-                  <li><span class="cat">Power</span><span class="stats"><%= move["power"] %></span></li>
-                <% end %>
-                <% end %>
-                </ul>
-              </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="hero-image" style="background-image: url(<%= @pokemon.picture %>)">
-              </div>
-
-            </div>
-
-
-          </div>
+<div class="container p-3 my-5 rounded" style="background-color: white; min-height: 70vh;">
+  <div class="row justify-content-center">
+    <div class="col-md-1">
+      <div class="hero-text">
+        <%= link_to "<", pokemons_path, class: "btn btn-success go" %>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div>
+        <h2><%= @pokemon.number %></h2>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="hero-text">
+        <div class="addition">
+          <% if current_user %>
+          <% if current_user.user_pokemons.length < 3 %>
+          <%= simple_form_for([current_user, UserPokemon.new]) do |f| %>
+          <%= f.hidden_field :pokemon_id, value: params[:id].to_i %>
+          <%= f.button :submit, id: "add-btn", value: "Add to Team", style: "color:white" %>
+          <% end %>
+          <% end %>
+          <% end %>
         </div>
       </div>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-12 hero-text">
+      <h2><%= @pokemon.name %></h2>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col" style="text-align: -webkit-center;">
+      <p class="card--<%=@pokemon.kind_of.downcase%> rounded" style="width:10%;color:white"><%= @pokemon.kind_of %></p>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <p class="descriptive"><%= @pokemon.description %></p>
+      <div class="hero-info">
+          <!-- <h2>Info</h2>
+          <ul>
+            <li><span class="cat"><p>Type</p></span><span class="stats"><%= @pokemon.kind_of %></span></li>
+            <li><span class="cat">Health</span><span class="stats"><%= @pokemon.hp %></span></li>
+          </ul> -->
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="hero-image" style="background-image: url(<%= @pokemon.picture %>); height: 100%;">
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

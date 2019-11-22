@@ -1,0 +1,16 @@
+  <div class="banner">
+
+    <div class="container">
+
+      <div class="content">
+        <%= image_tag "pokemon_logo.png", alt: "alttext", class: "pokemon-logo"%>
+        <p class="italic">Are you ready to catch 'em all?</p>
+      </div>
+
+      <div class="button-container d-flex justify-content-center flex-wrap flex-column">
+        <%# path = current_user ? user_path(current_user) : new_user_session_path %>
+        <%= link_to "Absolutely!", home_path, class: "cus-btn btn-1"  %>
+      </div>
+    </div>
+
+  </div>

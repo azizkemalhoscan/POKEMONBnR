@@ -1,9 +1,5 @@
 <p>Health Bar</p>
 
-
-
-
-
 <div class="container d-flex justify-content-around align-items-center mt-3">
   <% me = @battle.user %>
   <% @pokemon = Pokemon.find(params[:pokemon_id]) %>
@@ -39,7 +35,7 @@
 
               <% @sample_moves.each do |move| %>
               <tr>
-                <th><button class="btn btn--border"><%= move["name"] %></button></th>
+                <th><button class="btnd btn--border"><%= move["name"] %></button></th>
                 <td><%= move["power"] %></td>
             </tr>
             <% end %>

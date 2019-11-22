@@ -40,8 +40,8 @@
 </div>
 
 
-Sort by: <%= link_to "Rank desc", users_path(sort: 'rank_desc') %> |  <%= link_to "Rank asc", users_path(sort: 'rank_asc') %>
-
+<!-- Sort by: <%#= link_to "Rank desc", users_path(sort: 'rank_desc') %> |  <%#= link_to "Rank asc", users_path(sort: 'rank_asc') %>
+ -->
 
   <% counter = 0 %>
   <div class="card-product small">
@@ -55,10 +55,10 @@ Sort by: <%= link_to "Rank desc", users_path(sort: 'rank_desc') %> |  <%= link_t
         <div class="col-md-1">
           <h5><strong>AVATAR</strong></h5>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2 flex-nowrap">
             <h5><strong>TRAINER NAME</strong></h5>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-5">
           <h5><strong>CURRENT TEAM</strong></h5>
         </div>
         <div class="col-md-1">
@@ -86,21 +86,20 @@ Sort by: <%= link_to "Rank desc", users_path(sort: 'rank_desc') %> |  <%= link_t
         </div>
         <div class="col-md-1">
           <% if user.photo.attached? %>
-          <%= cl_image_tag(current_user.photo.key, :transformation=>[
+            <%= cl_image_tag(user.photo.key, :transformation=>[
               {:width=>400, :height=>400, :gravity=>"auto", :radius=>"max", :crop=>"crop"},
               {:width=>40, :crop=>"scale"}
-              ]) %>
+              ], class:"avatar") %>
           <% else %>
-          <img class="avatar " src="https://vignette.wikia.nocookie.net/295e578f-a7d1-4240-bc80-303bcfd62dc8">
-
+            <img class="avatar " src="https://vignette.wikia.nocookie.net/295e578f-a7d1-4240-bc80-303bcfd62dc8">
           <% end %>
         </div>
-        <div class="col-md-3 warrior-name">
+        <div class="col-md-2 warrior-name">
           <td class="align-middle">
             <%=link_to user.username.capitalize, user_path(user) %>
           </td>
         </div>
-        <div class="col-md-4 card-product-infos">
+        <div class="col-md-5 card-product-infos" style="justify-content:space-evenly">
           <%user.user_pokemons.each do |pair| %>
           <% @pokemon = pair.pokemon %>
           <div>
@@ -113,12 +112,12 @@ Sort by: <%= link_to "Rank desc", users_path(sort: 'rank_desc') %> |  <%= link_t
         </div>
         <div class="col-md-1">
 
-            <p>400</p>
+            <p><%= user.battles_fought %></p>
 
         </div>
         <div class="col-md-1">
           <div>
-            <p>60%</p>
+            <p><%= user.battles_fought == 0 ? 0 : user.battles_won / user.battles_fought * 100 %>%</p>
           </div>
         </div>
         <div class="col-md-1">
