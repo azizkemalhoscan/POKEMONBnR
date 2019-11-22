@@ -50,17 +50,6 @@
         </tr>
       </tbody></table>
 
-      <!-- <div class="card__abilities">
-        <h4 class="card__ability">
-          <span class="card__label">Move</span>
-          <%#= @pokemon.attack_name %>
-        </h4>
-        <h4 class="card__ability">
-          <span class="card__label">Value</span>
-          <%#= @pokemon.attack_value ? @pokemon.attack_value : "Status Ability" %>
-        </h4>
-      </div> -->
-      
     </figcaption>
     <% if @user.user_pokemons.length <= 3 && @user == current_user %>
       <%= link_to "Remove from team", user_user_pokemon_path(current_user, pair),

@@ -30,6 +30,17 @@
                   <li><span class="cat">Health</span><span class="stats"><%= @pokemon.hp %></span></li>
                 </ul>
               </div>
+              <div class="hero-info">
+                <h2>Testing Moves</h2>
+                <% @pokemon.moves.each do |move| %>
+                <ul>
+                <% if move != nil %>
+                  <li><span class="cat">Name</span><span class="stats"><%= move["name"] %></span></li>
+                  <li><span class="cat">Power</span><span class="stats"><%= move["power"] %></span></li>
+                <% end %>
+                <% end %>
+                </ul>
+              </div>
             </div>
             <div class="col-lg-6">
               <div class="hero-image" style="background-image: url(<%= @pokemon.picture %>)">
