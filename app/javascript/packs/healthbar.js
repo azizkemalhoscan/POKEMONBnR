@@ -27,6 +27,7 @@ const attackMove = () => {
 
     healthBarPlayerTwo.setAttribute("value", newHp);
     document.getElementById("pokemon-two-name").setAttribute("data-hp", newHp);
+
     // Player Two Move
     const hpPokemonOne = document.getElementById("pokemon-one-name").dataset.hp;
     var updateHpOne = hpPokemonOne - randomItem(enemyMoves);
