@@ -27,7 +27,6 @@ const attackMove = () => {
 
     healthBarPlayerTwo.setAttribute("value", newHp);
     document.getElementById("pokemon-two-name").setAttribute("data-hp", newHp);
-
     // Player Two Move
     const hpPokemonOne = document.getElementById("pokemon-one-name").dataset.hp;
     var updateHpOne = hpPokemonOne - randomItem(enemyMoves);
@@ -39,12 +38,12 @@ const attackMove = () => {
     var pageCover = document.querySelector(".page-cover")
 
     if (healthBarPlayerOne.getAttribute("value") <= 0) {
-    window.alert("You have lost")
+    window.alert("Oh no! You have not won this one.")
     // finalMessage.style.display = "block";
     // pageCover.style.display = "block";
     // finalMessage.innerHTML = "<p>You have won<p>"
     } else if (healthBarPlayerTwo.getAttribute("value") <= 0) {
-    window.alert("You have won")
+    window.alert("Congratulations! You are a winner!")
     // finalMessage.style.display = "block";
     // pageCover.style.display = "block";
     // finalMessage.innerHTML = "<p>You have lost<p>"
